@@ -1,0 +1,17 @@
+{
+  "name": "ui-edit",
+  "version": "1.0.0",
+  "description": "闲的试一试",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ht-sauce/ui-edit.git"
+  },
+  "author": "ht-sauce",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ht-sauce/ui-edit/issues"
+  },
+  "homepage": "https://github.com/ht-sauce/ui-edit#readme"
+}
