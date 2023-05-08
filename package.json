@@ -1,9 +1,16 @@
 {
+  "private": true,
   "name": "ui-edit",
   "version": "1.0.0",
   "description": "闲的试一试",
-  "scripts": {
-  },
+  "packageManager": "pnpm@8.4.0",
+  "workspaces": [
+    "component/*",
+    "play",
+    "docs",
+    "visualization"
+  ],
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ht-sauce/ui-edit.git"
@@ -13,5 +20,21 @@
   "bugs": {
     "url": "https://github.com/ht-sauce/ui-edit/issues"
   },
-  "homepage": "https://github.com/ht-sauce/ui-edit#readme"
+  "homepage": "https://github.com/ht-sauce/ui-edit#readme",
+  "engines": {
+    "node": ">= 16"
+  },
+  "devDependencies": {
+    "eslint": "^8.40.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.3",
+    "prettier": "^2.8.8",
+    "typescript": "^5.0.4",
+    "vite": "^4.3.5",
+    "vue-tsc": "^1.6.4"
+  },
+  "lint-staged": {
+    "*.{vue,js,ts,jsx,tsx,md,json}": "eslint --fix"
+  }
 }
