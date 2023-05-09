@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "ui-edit",
+  "name": "beaver",
   "version": "1.0.0",
   "description": "闲的试一试",
   "packageManager": "pnpm@8.4.0",
@@ -8,21 +8,22 @@
     "component/*",
     "play",
     "docs",
-    "visualization"
+    "visualization",
+    "icons"
   ],
   "scripts": {
     "play:dev": "pnpm run -C play dev"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ht-sauce/ui-edit.git"
+    "url": "git+https://github.com/ht-sauce/beaver.git"
   },
   "author": "ht-sauce",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ht-sauce/ui-edit/issues"
+    "url": "https://github.com/ht-sauce/beaver/issues"
   },
-  "homepage": "https://github.com/ht-sauce/ui-edit#readme",
+  "homepage": "https://github.com/ht-sauce/beaver#readme",
   "engines": {
     "node": ">= 16"
   },
