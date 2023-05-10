@@ -5,3 +5,4 @@ packages:
   - visualization
   - icons
   - inside/*
+  - css2json

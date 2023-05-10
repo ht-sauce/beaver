@@ -1,0 +1,19 @@
+{
+  "name": "@beaver/build",
+  "version": "0.0.1",
+  "description": "ESLint Config",
+  "license": "MIT",
+  "files": [
+    "index.js"
+  ],
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@vue/eslint-config-prettier": "^7.1.0",
+    "@vue/eslint-config-typescript": "^11.0.3",
+    "eslint": "^8.40.0",
+    "eslint-plugin-vue": "^9.11.0"
+  }
+}

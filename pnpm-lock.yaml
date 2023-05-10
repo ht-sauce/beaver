@@ -5,7 +5,7 @@ importers:
   .:
     dependencies:
       '@beaver/eslint-config':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:inside/eslint-config
     devDependencies:
       eslint:
@@ -39,7 +39,24 @@ importers:
 
   component/theme: {}
 
+  css2json: {}
+
   icons: {}
+
+  inside/build:
+    devDependencies:
+      '@vue/eslint-config-prettier':
+        specifier: ^7.1.0
+        version: 7.1.0(eslint@8.40.0)(prettier@2.8.8)
+      '@vue/eslint-config-typescript':
+        specifier: ^11.0.3
+        version: 11.0.3(eslint-plugin-vue@9.11.0)(eslint@8.40.0)(typescript@5.0.4)
+      eslint:
+        specifier: ^8.40.0
+        version: 8.40.0
+      eslint-plugin-vue:
+        specifier: ^9.11.0
+        version: 9.11.0(eslint@8.40.0)
 
   inside/eslint-config:
     devDependencies:
@@ -58,6 +75,12 @@ importers:
 
   play:
     dependencies:
+      '@beaver/css2json':
+        specifier: workspace:*
+        version: link:../css2json
+      '@beaver/library':
+        specifier: workspace:^
+        version: link:../component/library
       pinia:
         specifier: ^2.0.35
         version: 2.0.35(typescript@5.0.4)(vue@3.2.47)
