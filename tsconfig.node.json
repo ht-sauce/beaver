@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.base.json",
+  "include": ["vite.config.*", "vitest.config.*", "cypress.config.*", "playwright.config.*"],
+  // 定义项目的运行时期望
+  "compilerOptions": {
+    "composite": true, // 是否开启项目编译，开启该功能，将会生成被编译文件所在的目录
+    "lib": ["ESNext"],
+    "types": ["node"],
+    "skipLibCheck": true // 是否跳过声明文件的类型检查，这可以在编译期间以牺牲类型系统准确性为代价来节省时间
+  },
+  "exclude": ["**/__tests__/**", "**/tests/**", "**/dist"]
+}

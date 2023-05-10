@@ -9,7 +9,8 @@
     "play",
     "docs",
     "visualization",
-    "icons"
+    "icons",
+    "inside"
   ],
   "scripts": {
     "play:dev": "pnpm run -C play dev"
@@ -29,8 +30,6 @@
   },
   "devDependencies": {
     "eslint": "^8.40.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-prettier": "^4.2.1",
     "husky": "^8.0.3",
     "prettier": "^2.8.8",
     "typescript": "^5.0.4",
@@ -41,5 +40,8 @@
   },
   "lint-staged": {
     "*.{vue,js,ts,jsx,tsx}": "eslint --fix"
+  },
+  "dependencies": {
+    "@beaver/eslint-config": "workspace:*"
   }
 }
