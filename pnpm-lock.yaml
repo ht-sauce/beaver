@@ -8,9 +8,9 @@ importers:
         specifier: ^1.62.1
         version: 1.62.1
     devDependencies:
-      '@beaver/eslint-config':
+      '@beaver-internal/eslint-config':
         specifier: workspace:*
-        version: link:inside/eslint-config
+        version: link:internal/eslint-config
       eslint:
         specifier: ^8.40.0
         version: 8.40.0
@@ -42,9 +42,11 @@ importers:
 
   component/theme: {}
 
+  component/utils: {}
+
   icons: {}
 
-  inside/build:
+  internal/build:
     devDependencies:
       '@vue/eslint-config-prettier':
         specifier: ^7.1.0
@@ -59,7 +61,7 @@ importers:
         specifier: ^9.11.0
         version: 9.11.0(eslint@8.40.0)
 
-  inside/eslint-config:
+  internal/eslint-config:
     devDependencies:
       '@vue/eslint-config-prettier':
         specifier: ^7.1.0
@@ -76,7 +78,7 @@ importers:
 
   play:
     dependencies:
-      '@beaver/library':
+      '@beaver-ui/library':
         specifier: workspace:^
         version: link:../component/library
       pinia:

@@ -1,5 +1,5 @@
 {
-  "name": "@beaver/build",
+  "name": "@beaver-internal/build",
   "version": "0.0.1",
   "description": "ESLint Config",
   "license": "MIT",

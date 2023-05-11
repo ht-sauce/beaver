@@ -4,4 +4,4 @@ packages:
   - play
   - visualization
   - icons
-  - inside/*
+  - internal/*

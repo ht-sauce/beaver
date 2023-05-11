@@ -1,5 +1,5 @@
 {
-  "name": "@beaver/eslint-config",
+  "name": "@beaver-internal/eslint-config",
   "version": "0.0.1",
   "description": "ESLint Config",
   "license": "MIT",

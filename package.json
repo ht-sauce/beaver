@@ -10,7 +10,7 @@
     "docs",
     "visualization",
     "icons",
-    "inside/*"
+    "internal/*"
   ],
   "scripts": {
     "play:dev": "pnpm run -C play dev"
@@ -29,7 +29,7 @@
     "node": ">= 16"
   },
   "devDependencies": {
-    "@beaver/eslint-config": "workspace:*",
+    "@beaver-internal/eslint-config": "workspace:*",
     "eslint": "^8.40.0",
     "husky": "^8.0.3",
     "prettier": "^2.8.8",
