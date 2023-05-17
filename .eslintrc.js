@@ -1,4 +1,4 @@
 module.exports = {
   root: true,
-  extends: ['@beaver/eslint-config'],
+  extends: ['@beaver-internal/eslint-config'],
 }

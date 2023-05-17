@@ -1,0 +1,14 @@
+{
+  "name": "@beaver/docs",
+  "version": "1.0.0",
+  "description": "vitePress的说明网站",
+  "scripts": {
+    "dev": "vitepress dev .",
+    "build": "vitepress build .",
+    "preview": "vitepress preview ."
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "vitepress": "1.0.0-alpha.75"
+  }
+}

@@ -13,7 +13,8 @@
     "internal/*"
   ],
   "scripts": {
-    "play:dev": "pnpm run -C play dev"
+    "play:dev": "pnpm run -C play dev",
+    "docs:dev": "pnpm run -C docs dev"
   },
   "repository": {
     "type": "git",
