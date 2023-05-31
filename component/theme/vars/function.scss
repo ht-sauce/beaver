@@ -1,0 +1,6 @@
+// 生成十级颜色
+@function colorScale($mainColor, $cssVarName) {
+  @for $i from 1 to 3 {
+    .item-#{$i} { width: 2em * $i; }
+  }
+}

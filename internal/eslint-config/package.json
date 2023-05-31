@@ -13,7 +13,7 @@
   "devDependencies": {
     "@vue/eslint-config-prettier": "^7.1.0",
     "@vue/eslint-config-typescript": "^11.0.3",
-    "eslint": "^8.40.0",
-    "eslint-plugin-vue": "^9.11.0"
+    "eslint": "^8.41.0",
+    "eslint-plugin-vue": "^9.14.1"
   }
 }
