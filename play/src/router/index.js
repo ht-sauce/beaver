@@ -7,7 +7,7 @@ const router = createRouter({
       path: '/',
       component: () => import('@/views/home.vue'),
       meta: {
-        title: '跟页面',
+        title: '根页面',
       },
     },
     {
@@ -15,6 +15,13 @@ const router = createRouter({
       component: () => import('@/views/color/index.vue'),
       meta: {
         title: '调色盘',
+      },
+    },
+    {
+      path: '/test',
+      component: () => import('@/views/test.vue/index.vue'),
+      meta: {
+        title: '测试',
       },
     },
   ],

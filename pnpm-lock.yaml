@@ -38,7 +38,11 @@ importers:
 
   component/beaver-ui: {}
 
-  component/library: {}
+  component/library:
+    dependencies:
+      '@beaver-ui/theme':
+        specifier: workspace:^
+        version: link:../theme
 
   component/theme: {}
 
