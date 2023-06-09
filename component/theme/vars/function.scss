@@ -1,6 +1,7 @@
-// 生成十级颜色
-@function colorScale($mainColor, $cssVarName) {
-  @for $i from 1 to 3 {
-    .item-#{$i} { width: 2em * $i; }
-  }
+/* Element Chalk Variables */
+@use 'sass:math';
+
+// 生成色阶
+@function generateLevelColor($color, $mixin-color,$level) {
+  @return mix($mixin-color,$color, math.percentage(math.div($level, 10)))
 }

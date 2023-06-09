@@ -1,5 +1,6 @@
 // 定义全局的scss变量
 $namespace: 'be'; // 全局样式前缀
+$connector: '-'; // 连接符
 
 // 绿色
 $success: #52c41a;
@@ -16,13 +17,4 @@ $white: #ffffff;
 $black: #000000; // 黑色
 
 $main-color: #00B582; // 主色调
-$main-1: mix($white, $main-color, 10%);
-$main-2: mix($white, $main-color, 20%);
-$main-3: mix($white, $main-color, 30%);
-$main-4: mix($white, $main-color, 40%);
-$main-5: mix($white, $main-color, 50%);
-$main-6: $main-color; // 主色调
-$main-7: mix($black, $main-color, 60%);
-$main-8: mix($black, $main-color, 70%);
-$main-9: mix($black, $main-color, 80%);
-$main-10: mix($black, $main-color, 90%);
+
