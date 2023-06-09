@@ -2,6 +2,6 @@
 @use 'sass:math';
 
 // 生成色阶
-@function generateLevelColor($color, $mixin-color,$level) {
+@function generateLevelColor($color, $mixin-color, $level) {
   @return mix($mixin-color,$color, math.percentage(math.div($level, 10)))
 }

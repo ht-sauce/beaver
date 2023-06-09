@@ -19,7 +19,7 @@ const router = createRouter({
     },
     {
       path: '/test',
-      component: () => import('@/views/test.vue/index.vue'),
+      component: () => import('@/views/test/index.vue'),
       meta: {
         title: '测试',
       },

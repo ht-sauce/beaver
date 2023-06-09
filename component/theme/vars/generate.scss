@@ -1,1 +1,14 @@
 // 该文件用于生成css变量，所有应该用css变量的地方都用css变量代替
+@use './config.scss' as *;
+@use './function.scss' as *;
+
+:root {
+  // 0和10是原始色和白色
+  @for $i from 0 through 9 {
+    --#{$namespace + $connector}main-color#{$i}: #{generateLevelColor($main-color, $white, $i)};
+  }
+  // 0和10是原始色和白色
+  @for $i from 0 through 9 {
+    --#{$namespace + $connector}main-color#{$i + 10}: #{generateLevelColor($main-color, $black, 9 - $i )};
+  }
+}
