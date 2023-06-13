@@ -18,6 +18,30 @@ $black: #000000; // 黑色
 
 $main-color: #fa8c16; // 主色调
 
-$cssVar-list: (
-
+$css-var-list: (
+        // 主要色彩
+  main-color0: $main-color,
+  //main-color1: mix($white, $main-color, 10%),
+  //main-color2: mix($white, $main-color, 20%),
+  //main-color3: mix($white, $main-color, 30%),
+  //main-color4: mix($white, $main-color, 40%),
+  //main-color5: mix($white, $main-color, 50%),
+  //main-color6: mix($white, $main-color, 60%),
+  //main-color7: mix($white, $main-color, 70%),
+  //main-color8: mix($white, $main-color, 80%),
+  main-color9: mix($white, $main-color, 90%),
+  // 黑色
+  black0: $black,
+        // 白色
+  white0: $white,
+  // 绿色
+        success0: #52c41a,
+  // 黄色
+  warning0: #faad14,
+  // 红色
+  error0: #f5222d,
+  // 灰色
+  info0: #bfbfbf,
+  // 字體顏色
+  font-main: mix($white, $black, 10%)
 )

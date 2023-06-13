@@ -3,12 +3,8 @@
 @use './function.scss' as *;
 
 :root {
-  // 0和10是原始色和白色
-  @for $i from 0 through 9 {
-    --#{$namespace + $connector}main-color#{$i}: #{generateLevelColor($main-color, $white, $i)};
-  }
-  // 0和10是原始色和白色
-  @for $i from 0 through 9 {
-    --#{$namespace + $connector}main-color#{$i + 10}: #{generateLevelColor($main-color, $black, 9 - $i )};
+  // 生成css变量
+  @each $key, $value in $css-var-list {
+    --#{$namespace + $connector + $key}: #{$value};
   }
 }
