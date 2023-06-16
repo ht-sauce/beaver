@@ -44,6 +44,8 @@ importers:
         specifier: workspace:^
         version: link:../theme
 
+  component/popper: {}
+
   component/theme: {}
 
   component/utils: {}
@@ -91,6 +93,9 @@ importers:
       '@beaver-ui/library':
         specifier: workspace:^
         version: link:../component/library
+      '@beaver-ui/popper':
+        specifier: workspace:^
+        version: link:../component/popper
       '@beaver-ui/theme':
         specifier: workspace:^
         version: link:../component/theme

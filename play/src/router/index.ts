@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, RouterOptions } from 'vue-router'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -24,7 +24,14 @@ const router = createRouter({
         title: '测试',
       },
     },
+    {
+      path: '/popper',
+      component: () => import('@/views/popper/index.vue'),
+      meta: {
+        title: 'popper自研浮框',
+      },
+    },
   ],
-})
+} as RouterOptions)
 
 export default router
