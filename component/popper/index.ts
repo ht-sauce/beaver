@@ -1,5 +1,5 @@
 // 自研浮框
-import { PopperNewParams, PopperParams } from './types'
+import { PopperNewParams, PopperParams, Position, UpDown } from './types'
 import { toPx } from './tool'
 
 class Popper {
@@ -34,6 +34,7 @@ class Popper {
     // 设置浮动元素的定位为绝对定位
     const tooltipDom = this.params.tooltipDom
     tooltipDom.style.position = 'fixed'
+    tooltipDom.style.zIndex = this.params.zIndex ? String(this.params.zIndex) : ''
     this.upPosition()
   }
   // 获取元素位置
@@ -58,19 +59,44 @@ class Popper {
     const { direction, tooltipDom } = this.params
     const { bindDomRect, tooltipDomRect } = this.getRect()
     const offset = this.params.offset
-    if (direction.indexOf('bottom') !== -1) {
+    const [position, upDown] = direction.split('-') as [Position, UpDown]
+    if (position === 'bottom') {
       tooltipDom.style.top = toPx(bindDomRect.top + bindDomRect.height + offset)
     }
-    if (direction.indexOf('top') !== -1) {
-      tooltipDom.style.top = toPx(bindDomRect.top - bindDomRect.height - offset)
+    if (position === 'top') {
+      tooltipDom.style.top = toPx(bindDomRect.top - tooltipDomRect.height - offset)
     }
-    if (direction.indexOf('left') !== -1) {
-      // tooltipDom.style.top = toPx(bindDomRect.top + bindDomRect.height + offset)
+    if (position === 'bottom' || position === 'top') {
+      if (!upDown) {
+        tooltipDom.style.left = toPx(bindDomRect.left - (tooltipDomRect.width - bindDomRect.width) / 2)
+      }
+      if (upDown === 'start') {
+        tooltipDom.style.left = toPx(bindDomRect.left)
+      }
+      if (upDown === 'end') {
+        tooltipDom.style.left = toPx(bindDomRect.right - tooltipDomRect.width)
+      }
     }
-    if (direction.indexOf('right') !== -1) {
-      // tooltipDom.style.top = toPx(bindDomRect.top + bindDomRect.height + offset)
+
+    if (position === 'left') {
+      tooltipDom.style.left = toPx(bindDomRect.left - tooltipDomRect.width - offset)
     }
-    switch (direction) {
+    if (position === 'right') {
+      tooltipDom.style.left = toPx(bindDomRect.left + bindDomRect.width + offset)
+    }
+    if (position === 'left' || position === 'right') {
+      if (!upDown) {
+        tooltipDom.style.top = toPx(bindDomRect.top - (tooltipDomRect.height - bindDomRect.height) / 2)
+      }
+      if (upDown === 'start') {
+        tooltipDom.style.top = toPx(bindDomRect.top)
+      }
+      if (upDown === 'end') {
+        tooltipDom.style.top = toPx(bindDomRect.top - (tooltipDomRect.height - bindDomRect.height))
+      }
+    }
+
+    /*switch (direction) {
       case 'bottom': {
         tooltipDom.style.left = toPx(bindDomRect.left - (tooltipDomRect.width - bindDomRect.width) / 2)
         break
@@ -84,37 +110,42 @@ class Popper {
         break
       }
       case 'top': {
+        tooltipDom.style.left = toPx(bindDomRect.left - (tooltipDomRect.width - bindDomRect.width) / 2)
         break
       }
       case 'top-start': {
+        tooltipDom.style.left = toPx(bindDomRect.left)
         break
       }
       case 'top-end': {
+        tooltipDom.style.left = toPx(bindDomRect.right - tooltipDomRect.width)
         break
       }
       case 'left': {
+        tooltipDom.style.top = toPx(bindDomRect.top - (tooltipDomRect.height - bindDomRect.height) / 2)
         break
       }
       case 'left-start': {
+        tooltipDom.style.top = toPx(bindDomRect.top)
         break
       }
       case 'left-end': {
+        tooltipDom.style.top = toPx(bindDomRect.top - (tooltipDomRect.height - bindDomRect.height))
         break
       }
       case 'right': {
+        tooltipDom.style.top = toPx(bindDomRect.top - (tooltipDomRect.height - bindDomRect.height) / 2)
         break
       }
       case 'right-start': {
+        tooltipDom.style.top = toPx(bindDomRect.top)
         break
       }
       case 'right-end': {
+        tooltipDom.style.top = toPx(bindDomRect.top - (tooltipDomRect.height - bindDomRect.height))
         break
       }
-    }
-  }
-  // window窗口变化监听
-  onResize() {
-    this.upPosition()
+    }*/
   }
 }
 

@@ -17,8 +17,10 @@ onMounted(() => {
   popper = new Popper({
     bindDom: buttonRef.value as HTMLButtonElement,
     tooltipDom: tooltipRef.value as HTMLDivElement,
-    direction: 'top',
+    direction: 'right',
   })
+  // popper.upPosition()
+  console.log(1)
 })
 onBeforeUnmount(() => {
   uninstall()
@@ -35,6 +37,8 @@ function uninstall() {
   //position: fixed;
 }
 .bind-dom {
+  //position: absolute;
+  right: 0;
   margin: 400px;
   padding: 20px;
   box-sizing: border-box;

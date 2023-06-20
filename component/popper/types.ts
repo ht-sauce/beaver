@@ -1,3 +1,7 @@
+// 位置
+export type Position = 'top' | 'bottom' | 'left' | 'right'
+// 上下
+export type UpDown = undefined | 'start' | 'end'
 // 默认方位
 export type Direction =
   | 'top'
@@ -12,10 +16,12 @@ export type Direction =
   | 'right'
   | 'right-start'
   | 'right-end'
+
 // 创建的时候的入参
 export interface PopperNewParams {
   bindDom: HTMLElement // 被绑定的元素
   tooltipDom: HTMLElement // 浮动元素
+  zIndex?: number
   direction?: Direction
   offset?: number
   // 元素是否会跟随消失
