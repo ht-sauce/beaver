@@ -1,19 +1,48 @@
 <template>
-  <div>
-    <button ref="buttonRef">測試</button>
+  <div class="page">
+    <button @click="uninstall">卸载绑定</button>
+    <button ref="buttonRef" class="bind-dom">測試</button>
+    <div ref="tooltipRef" class="tooltip">这是浮窗</div>
   </div>
 </template>
 <script setup lang="ts">
 import Popper from '@beaver-ui/popper'
-import { onMounted, ref } from 'vue'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 
 const buttonRef = ref<HTMLButtonElement | null>(null)
+const tooltipRef = ref<HTMLDivElement | null>(null)
 
+let popper: Popper
 onMounted(() => {
-  const popper = new Popper({
-    dom: buttonRef.value as HTMLButtonElement,
+  popper = new Popper({
+    bindDom: buttonRef.value as HTMLButtonElement,
+    tooltipDom: tooltipRef.value as HTMLDivElement,
+    direction: 'top',
   })
 })
+onBeforeUnmount(() => {
+  uninstall()
+})
+function uninstall() {
+  popper.uninstall()
+}
 </script>
 
-<style scoped></style>
+<style scoped>
+.page {
+  height: 300vh;
+  width: 300vw;
+  //position: fixed;
+}
+.bind-dom {
+  margin: 400px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.tooltip {
+  width: 100px;
+  height: 100px;
+  background: white;
+  box-shadow: black 0 0 4px;
+}
+</style>
