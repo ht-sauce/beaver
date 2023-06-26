@@ -9,10 +9,9 @@ class Popper {
   constructor(params: PopperNewParams) {
     // 一定有默认值，进行默认值处理
     params.direction = params.direction ?? 'bottom'
-    // 默认跟随消失
-    // params.followDisappear = params.followDisappear ?? true
     params.offset = params.offset ?? 12
     params.updateDirection = params.updateDirection ?? true
+    params.arrow = params.arrow ?? true // 默认需要三角箭头
 
     this.params = params as PopperParams
 
@@ -141,6 +140,8 @@ class Popper {
       }
     }
   }
+  // 设置三角形
+  setArrow() {}
 }
 
 export default Popper
