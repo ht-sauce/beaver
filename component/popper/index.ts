@@ -1,5 +1,5 @@
 // 自研浮框
-import { PopperNewParams, PopperParams, Position, UpDown } from './types'
+import { Direction, PopperNewParams, PopperParams, Position, UpDown } from './types'
 import { toPx } from './tool'
 
 class Popper {
@@ -10,8 +10,9 @@ class Popper {
     // 一定有默认值，进行默认值处理
     params.direction = params.direction ?? 'bottom'
     // 默认跟随消失
-    params.followDisappear = params.followDisappear ?? true
+    // params.followDisappear = params.followDisappear ?? true
     params.offset = params.offset ?? 12
+    params.updateDirection = params.updateDirection ?? true
 
     this.params = params as PopperParams
 
@@ -35,6 +36,9 @@ class Popper {
     const tooltipDom = this.params.tooltipDom
     tooltipDom.style.position = 'fixed'
     tooltipDom.style.zIndex = this.params.zIndex ? String(this.params.zIndex) : ''
+
+    // 第一次也许不是最合适的位置，初始加载两次
+    this.upPosition()
     this.upPosition()
   }
   // 获取元素位置
@@ -54,9 +58,50 @@ class Popper {
       tooltipDomRect: this.params.tooltipDom.getBoundingClientRect(),
     }
   }
+  // 方向时间间隔，
+  directionTimeInterval: number[] = [0, 0]
+  setDirection(direction: Direction) {
+    // 记录最近两次变化时间间隔
+    this.directionTimeInterval.splice(0, 1)
+    this.directionTimeInterval.push(new Date().getTime())
+
+    const renderingTime = this.directionTimeInterval[1] - this.directionTimeInterval[0]
+    // 方向变化时间间隔控制在500毫秒以下
+    if (renderingTime < 500) return
+
+    this.params.direction = direction
+  }
+  // 动态调整浮框位置
+  updateDirection() {
+    const { tooltipDomRect, innerHeight, innerWidth } = this.getRect()
+    const { top, left, width, height } = tooltipDomRect
+    // 多余减去18，作为滚动条的宽度
+    const scrollBarW = 18
+    const spacingRight = innerWidth - left - width - scrollBarW
+    const spacingBottom = innerHeight - top - height - scrollBarW
+    if (top < 0) {
+      this.setDirection('bottom')
+      return
+    }
+    if (left < 0) {
+      this.setDirection('right')
+      return
+    }
+    if (spacingRight < 0) {
+      this.setDirection('left')
+      return
+    }
+    if (spacingBottom < 0) {
+      this.setDirection('top')
+      return
+    }
+  }
   // 更新位置
   upPosition() {
+    this.params.updateDirection && this.updateDirection()
+
     const { direction, tooltipDom } = this.params
+
     const { bindDomRect, tooltipDomRect } = this.getRect()
     const offset = this.params.offset
     const [position, upDown] = direction.split('-') as [Position, UpDown]
@@ -95,57 +140,6 @@ class Popper {
         tooltipDom.style.top = toPx(bindDomRect.top - (tooltipDomRect.height - bindDomRect.height))
       }
     }
-
-    /*switch (direction) {
-      case 'bottom': {
-        tooltipDom.style.left = toPx(bindDomRect.left - (tooltipDomRect.width - bindDomRect.width) / 2)
-        break
-      }
-      case 'bottom-start': {
-        tooltipDom.style.left = toPx(bindDomRect.left)
-        break
-      }
-      case 'bottom-end': {
-        tooltipDom.style.left = toPx(bindDomRect.right - tooltipDomRect.width)
-        break
-      }
-      case 'top': {
-        tooltipDom.style.left = toPx(bindDomRect.left - (tooltipDomRect.width - bindDomRect.width) / 2)
-        break
-      }
-      case 'top-start': {
-        tooltipDom.style.left = toPx(bindDomRect.left)
-        break
-      }
-      case 'top-end': {
-        tooltipDom.style.left = toPx(bindDomRect.right - tooltipDomRect.width)
-        break
-      }
-      case 'left': {
-        tooltipDom.style.top = toPx(bindDomRect.top - (tooltipDomRect.height - bindDomRect.height) / 2)
-        break
-      }
-      case 'left-start': {
-        tooltipDom.style.top = toPx(bindDomRect.top)
-        break
-      }
-      case 'left-end': {
-        tooltipDom.style.top = toPx(bindDomRect.top - (tooltipDomRect.height - bindDomRect.height))
-        break
-      }
-      case 'right': {
-        tooltipDom.style.top = toPx(bindDomRect.top - (tooltipDomRect.height - bindDomRect.height) / 2)
-        break
-      }
-      case 'right-start': {
-        tooltipDom.style.top = toPx(bindDomRect.top)
-        break
-      }
-      case 'right-end': {
-        tooltipDom.style.top = toPx(bindDomRect.top - (tooltipDomRect.height - bindDomRect.height))
-        break
-      }
-    }*/
   }
 }
 

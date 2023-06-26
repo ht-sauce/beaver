@@ -18,9 +18,9 @@ onMounted(() => {
     bindDom: buttonRef.value as HTMLButtonElement,
     tooltipDom: tooltipRef.value as HTMLDivElement,
     direction: 'right',
+    // zIndex: 10,
   })
   // popper.upPosition()
-  console.log(1)
 })
 onBeforeUnmount(() => {
   uninstall()
@@ -30,16 +30,17 @@ function uninstall() {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .page {
   height: 300vh;
   width: 300vw;
-  //position: fixed;
+  //display: flex;
+  //align-items: center;
+  //justify-content: center;
 }
 .bind-dom {
   //position: absolute;
   right: 0;
-  margin: 400px;
   padding: 20px;
   box-sizing: border-box;
 }
