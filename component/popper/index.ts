@@ -40,6 +40,8 @@ class Popper {
     tooltipDom.style.zIndex = this.params.zIndex ? String(this.params.zIndex) : ''
     if (this.params.arrow) {
       this.setArrow()
+    } else {
+      this.removeArrow()
     }
     // 第一次也许不是最合适的位置，初始加载两次
     this.upPosition()
