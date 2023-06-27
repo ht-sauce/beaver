@@ -1,9 +1,10 @@
 // 自研浮框
 import { Direction, PopperNewParams, PopperParams, Position, UpDown } from './types'
-import { toPx } from './tool'
+import { removePx, toPx } from './tool'
 
 class Popper {
   params: PopperParams
+  arrowDom: HTMLElement | null
   // 卸载
   uninstall() {}
   constructor(params: PopperNewParams) {
@@ -12,6 +13,7 @@ class Popper {
     params.offset = params.offset ?? 12
     params.updateDirection = params.updateDirection ?? true
     params.arrow = params.arrow ?? true // 默认需要三角箭头
+    params.arrowOffset = Number(params.arrowOffset ?? 0)
 
     this.params = params as PopperParams
 
@@ -27,6 +29,7 @@ class Popper {
     window.addEventListener('scroll', reSize, false)
     // 真正的卸载
     this.uninstall = () => {
+      this.removeArrow()
       window.removeEventListener('resize', reSize, false)
       window.removeEventListener('scroll', reSize, false)
     }
@@ -35,7 +38,9 @@ class Popper {
     const tooltipDom = this.params.tooltipDom
     tooltipDom.style.position = 'fixed'
     tooltipDom.style.zIndex = this.params.zIndex ? String(this.params.zIndex) : ''
-
+    if (this.params.arrow) {
+      this.setArrow()
+    }
     // 第一次也许不是最合适的位置，初始加载两次
     this.upPosition()
     this.upPosition()
@@ -55,6 +60,7 @@ class Popper {
       innerHeight: window.innerHeight,
       bindDomRect: this.params.bindDom.getBoundingClientRect(),
       tooltipDomRect: this.params.tooltipDom.getBoundingClientRect(),
+      // arrowDomRect: this.arrowDom?.getBoundingClientRect(),
     }
   }
   // 方向时间间隔，
@@ -95,15 +101,25 @@ class Popper {
       return
     }
   }
+  // 简化处理方向
+  directionHandle() {
+    const [position, upDown] = this.params.direction.split('-') as [Position, UpDown]
+    return {
+      direction: this.params.direction,
+      position,
+      upDown,
+    }
+  }
   // 更新位置
   upPosition() {
     this.params.updateDirection && this.updateDirection()
 
-    const { direction, tooltipDom } = this.params
+    const { tooltipDom } = this.params
 
     const { bindDomRect, tooltipDomRect } = this.getRect()
     const offset = this.params.offset
-    const [position, upDown] = direction.split('-') as [Position, UpDown]
+
+    const { position, upDown } = this.directionHandle()
     if (position === 'bottom') {
       tooltipDom.style.top = toPx(bindDomRect.top + bindDomRect.height + offset)
     }
@@ -139,9 +155,68 @@ class Popper {
         tooltipDom.style.top = toPx(bindDomRect.top - (tooltipDomRect.height - bindDomRect.height))
       }
     }
+
+    // console.log(this.arrowDom, 222)
+    this.arrowDom && this.upPositionArrow()
   }
   // 设置三角形
-  setArrow() {}
+  setArrow() {
+    this.removeArrow()
+    const arrow = document.createElement('div')
+    if (this.params.arrowClassName) {
+      arrow.setAttribute('class', this.params.arrowClassName)
+    }
+    arrow.setAttribute(
+      'style',
+      `position: fixed;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 6px;
+  border-color: transparent transparent #ffffff #ffffff;
+  box-shadow: -2px 2px 3px 0px rgba(0, 0, 0, 0.1);`,
+    )
+    arrow.style.zIndex = this.params.zIndex ? String(this.params.zIndex) : ''
+    this.arrowDom = arrow
+    document.body.appendChild(arrow)
+  }
+  removeArrow() {
+    if (this.arrowDom) document.body.removeChild(this.arrowDom)
+  }
+  upPositionArrow() {
+    const arrowDom = this.arrowDom
+    const { position } = this.directionHandle()
+    const { arrowOffset } = this.params
+
+    const { bindDomRect, tooltipDomRect } = this.getRect()
+    const borderWidth = removePx(arrowDom.style.borderWidth)
+    switch (position) {
+      case 'top': {
+        arrowDom.style.transform = 'rotate(-45deg)'
+        arrowDom.style.top = toPx(tooltipDomRect.top + tooltipDomRect.height - borderWidth - 1)
+        arrowDom.style.left = toPx(bindDomRect.left + bindDomRect.width / 2 - borderWidth - 1 - arrowOffset)
+        break
+      }
+      case 'bottom': {
+        arrowDom.style.transform = 'rotate(135deg)'
+        arrowDom.style.top = toPx(tooltipDomRect.top - borderWidth + 1)
+        arrowDom.style.left = toPx(bindDomRect.left + bindDomRect.width / 2 - borderWidth - arrowOffset)
+        break
+      }
+      case 'left': {
+        arrowDom.style.transform = 'rotate(-135deg)'
+        arrowDom.style.top = toPx(bindDomRect.top + bindDomRect.height / 2 - borderWidth - arrowOffset)
+        arrowDom.style.left = toPx(tooltipDomRect.left + tooltipDomRect.width - borderWidth - 1)
+        break
+      }
+      case 'right': {
+        arrowDom.style.transform = 'rotate(45deg)'
+        arrowDom.style.top = toPx(bindDomRect.top + bindDomRect.height / 2 - borderWidth - arrowOffset)
+        arrowDom.style.left = toPx(tooltipDomRect.left - borderWidth + 1)
+        break
+      }
+    }
+  }
 }
 
 export default Popper

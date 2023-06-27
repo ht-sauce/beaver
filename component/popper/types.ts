@@ -26,6 +26,8 @@ export interface PopperNewParams {
   offset?: number
   updateDirection?: boolean
   arrow?: boolean // 是否展示箭头
+  arrowClassName?: string // 箭头class名称
+  arrowOffset?: number // 箭头偏移值
 }
 export interface PopperParams extends PopperNewParams {
   direction: Direction
