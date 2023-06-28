@@ -6,6 +6,14 @@ const router = createRouter({
       path: '/',
       component: () => import('@/views/home/index.vue'),
     },
+    {
+      path: '/',
+      component: () => import('@/views/edit/index.vue'),
+    },
+    {
+      path: '/',
+      component: () => import('@/views/preview/index.vue'),
+    },
   ],
 })
 
