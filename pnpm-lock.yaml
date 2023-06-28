@@ -136,6 +136,9 @@ importers:
 
   visualization:
     dependencies:
+      '@beaver-ui/theme':
+        specifier: workspace:^
+        version: link:../component/theme
       element-plus:
         specifier: ^2.3.7
         version: 2.3.7(vue@3.3.4)

@@ -2,7 +2,7 @@
   <div>
     <div class="page-list">
       <template v-for="item in routes" :key="item.path">
-        <el-link :href="item.path">
+        <el-link :href="router.resolve(item.path).href">
           {{ item.meta?.title }}
         </el-link>
       </template>

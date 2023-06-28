@@ -3,3 +3,8 @@ export const config = {
   connector: '-', // 连接符
   // css变量
 }
+export function prefix() {
+  return {
+    main: config.namespace + config.connector,
+  }
+}
