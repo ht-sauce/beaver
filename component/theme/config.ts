@@ -5,6 +5,6 @@ export const config = {
 }
 export function prefix() {
   return {
-    main: config.namespace + config.connector,
+    main: '--' + config.namespace + config.connector,
   }
 }

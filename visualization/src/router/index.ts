@@ -12,6 +12,13 @@ const router = createRouter({
       },
     },
     {
+      path: '/design',
+      component: () => import('@/views/design/index.vue'),
+      meta: {
+        title: '设计',
+      },
+    },
+    {
       path: '/edit',
       component: () => import('@/views/edit/index.vue'),
       meta: {

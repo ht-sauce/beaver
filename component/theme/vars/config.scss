@@ -1,7 +1,3 @@
-// 定义全局的scss变量
-$namespace: 'be'; // 全局样式前缀
-$connector: '-'; // 连接符
-
 // 绿色
 $success: #52c41a;
 // 黄色
@@ -16,20 +12,20 @@ $black: #000000;
 $white: #ffffff;
 $black: #000000; // 黑色
 
-$main-color: #fa8c16; // 主色调
+$main-color: #faad14; // 主色调
 
 $css-var-list: (
   // 主要色彩
   main-color0: $main-color,
-  main-color1: mix($white, $main-color, 10%),
-  main-color2: mix($white, $main-color, 20%),
-  main-color3: mix($white, $main-color, 30%),
-  main-color4: mix($white, $main-color, 40%),
-  main-color5: mix($white, $main-color, 50%),
-  main-color6: mix($white, $main-color, 60%),
-  main-color7: mix($white, $main-color, 70%),
-  main-color8: mix($white, $main-color, 80%),
-  main-color9: mix($white, $main-color, 90%),
+  main-color1: #fffbe6,
+  main-color2: #fff1b8,
+  main-color3: #ffe58f,
+  main-color4: #ffd666,
+  main-color5: #ffc53d,
+  main-color6: #d48806,
+  main-color7: #ad6800,
+  main-color8: #874d00,
+  main-color9: #613400,
   // 黑色
   black0: $black,
   // 白色
@@ -43,19 +39,29 @@ $css-var-list: (
   // 灰色
   info0: $info,
   // 字體顏色
-  font-main: mix($white, $black, 10%),
+  font-main: rgba(0,0,0,0.85), // 主要展示文字颜色
+  font-title: rgba(0,0,0,0.85), // 标题
+  font-secondary: rgba(0,0,0,0.45),
+  font-disable: rgba(0,0,0,0.25), // 禁用
+  // 背景颜色
+  background:  rgba(0,0,0,0.04),
   // 字体大小
   h1: 30px, // 页面唯一标题
   h2: 24px, // 文章导航标题
   h3: 20px, // 常规标题
-  h4: 16px, // 次级标题
+  h4: 16px, // 次级标题，弹窗标题，tab标题等
   h5: 14px, // 常规主要展示文字
   h6: 12px, // 若提示文字
+  // 字重
+  bold-main: 500,
+  bold-title: 600,
   // 阴影
-  shadow1: 0 1px 2px -2px rgba(0,0,0,0.16),
+  shadow1: 0 3px 6px 0px rgba(0,0,0,0.12),
   // 间距
   margin0: 16px, // 块元素间距
   maring1: 12px, // label块间距
   margin2: 8px, // 字体块间距
   margin3: 4px,
+  // 边框
+  border: rgba(0,0,0,0.15)
 )

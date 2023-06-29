@@ -1,7 +1,7 @@
 /* Element Chalk Variables */
-@use 'sass:math';
+//@use 'sass:math';
+@use './namespce.scss' as *;
 
-// 生成色阶
-@function generateLevelColor($color, $mixin-color, $level) {
-  @return mix($mixin-color,$color, math.percentage(math.div($level, 10)))
+@function GetVar($varName) {
+  @return var(--#{$namespace + $connector + $varName})
 }
