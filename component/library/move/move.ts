@@ -3,8 +3,20 @@ import { InParams, VmoveCallData } from './types'
 export default class Move {
   params: InParams
   constructor(params: InParams) {
-    const { bindDom, x, y, deviationX, deviationY, moveStart, moveStop, parentNodeBoundary, windowBoundary, change } =
-      params
+    const {
+      bindDom,
+      x,
+      y,
+      deviationX,
+      deviationY,
+      moveStart,
+      moveStop,
+      parentNodeBoundary,
+      windowBoundary,
+      change,
+      onlyY,
+      onlyX,
+    } = params
     if (!bindDom) {
       console.warn('请绑定需要移动的元素')
       return
@@ -13,6 +25,8 @@ export default class Move {
       ...params,
       x: x ?? 0,
       y: y ?? 0,
+      onlyY: onlyY ?? true,
+      onlyX: onlyX ?? true,
       deviationX: deviationX ?? 0,
       deviationY: deviationY ?? 0,
       parentNodeBoundary: parentNodeBoundary ?? false,
@@ -21,6 +35,7 @@ export default class Move {
       moveStart,
       moveStop,
     }
+    this.eventBind()
   }
   uninstall() {
     const { bindDom } = params
@@ -110,37 +125,39 @@ export default class Move {
         onlyX && (bindDom.style.left = left + 'px')
         onlyY && (bindDom.style.top = top + 'px')
 
-        change({
-          left,
-          top,
-          percentX,
-          percentY,
-          minX: minW,
-          minY: minH,
-          maxX: maxW,
-          maxY: maxH,
-          selfWidth: sw,
-          selfHeight: sh,
-        } as VmoveCallData)
+        if (change)
+          change({
+            left,
+            top,
+            percentX,
+            percentY,
+            minX: minW,
+            minY: minH,
+            maxX: maxW,
+            maxY: maxH,
+            selfWidth: sw,
+            selfHeight: sh,
+          } as VmoveCallData)
       }
       document.onmouseup = () => {
         //鼠标弹起来的时候不再移动
         bindDom.isMove = false
         document.onmousemove = null
         document.onmouseup = null
-        bindDom.style.cursor = 'default'
-        moveStop({
-          left,
-          top,
-          percentX,
-          percentY,
-          minX: minW,
-          minY: minH,
-          maxX: maxW,
-          maxY: maxH,
-          selfWidth: sw,
-          selfHeight: sh,
-        } as VmoveCallData)
+        bindDom.style.cursor = 'pointer'
+        if (moveStop)
+          moveStop({
+            left,
+            top,
+            percentX,
+            percentY,
+            minX: minW,
+            minY: minH,
+            maxX: maxW,
+            maxY: maxH,
+            selfWidth: sw,
+            selfHeight: sh,
+          } as VmoveCallData)
       }
     }
   }

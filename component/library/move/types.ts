@@ -6,8 +6,8 @@ export interface InParams {
   x?: number
   y?: number
   // 仅x，y移动
-  onlyX: boolean
-  onlyY: boolean
+  onlyX?: boolean
+  onlyY?: boolean
   // 是否只在window.innerWidth和window.innerHeight范围内移动
   // 和boundary参数互斥，不可同时使用
   windowBoundary?: boolean
