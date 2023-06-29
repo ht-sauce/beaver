@@ -2,6 +2,7 @@ import { InParams, VmoveCallData } from './types'
 
 export default class Move {
   params: InParams
+  uninstall: () => void
   constructor(params: InParams) {
     const {
       bindDom,
@@ -36,13 +37,6 @@ export default class Move {
       moveStop,
     }
     this.eventBind()
-  }
-  uninstall() {
-    const { bindDom } = params
-    // 必要的操作
-    bindDom.onmousedown = null
-    document.onmousemove = null
-    document.onmouseup = null
   }
   paramsHandler() {
     const { parentNodeBoundary, windowBoundary, bindDom, deviationX, deviationY, onlyX, onlyY, x, y } = this.params
@@ -90,7 +84,7 @@ export default class Move {
     const { bindDom, change, moveStart, moveStop, onlyX, onlyY, windowBoundary, parentNodeBoundary } = this.params
     const { sw, sh, maxW, maxH, minW, minH } = this.paramsHandler()
 
-    bindDom.onmousedown = (e) => {
+    const onmousedown = function (e) {
       // 阻止默认事件，避免元素选中
       e.preventDefault()
       bindDom.isMove = true
@@ -106,7 +100,7 @@ export default class Move {
         percentY = 0
       if (moveStart) moveStart()
 
-      document.onmousemove = (e2) => {
+      const onmousemove = function (e2) {
         bindDom.style.transition = ''
         //用鼠标的位置减去鼠标相对元素的位置，得到元素的位置
         left = e2.clientX - disX
@@ -139,12 +133,12 @@ export default class Move {
             selfHeight: sh,
           } as VmoveCallData)
       }
-      document.onmouseup = () => {
+      const onmouseup = function () {
         //鼠标弹起来的时候不再移动
         bindDom.isMove = false
-        document.onmousemove = null
-        document.onmouseup = null
         bindDom.style.cursor = 'pointer'
+        document.removeEventListener('mousemove', onmousemove, false)
+        document.removeEventListener('mouseup', onmouseup, false)
         if (moveStop)
           moveStop({
             left,
@@ -159,6 +153,14 @@ export default class Move {
             selfHeight: sh,
           } as VmoveCallData)
       }
+
+      document.addEventListener('mousemove', onmousemove, false)
+      document.addEventListener('mouseup', onmouseup, false)
+    }
+    bindDom.addEventListener('mousedown', onmousedown, false)
+
+    this.uninstall = function () {
+      bindDom.removeEventListener('mousedown', onmousedown, false)
     }
   }
 }

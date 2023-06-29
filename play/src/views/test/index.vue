@@ -17,7 +17,7 @@ onMounted(() => {
     x: 100,
     y: 100,
     change(data) {
-      console.log(data)
+      // console.log(data)
     },
   })
 })
