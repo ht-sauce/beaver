@@ -32,7 +32,7 @@ const mainColor = ref(
 </script>
 
 <style scoped lang="scss">
-@use '@beaver-ui/theme/vars/config.scss';
+@use '@beaver-ui/theme/vars/function.scss' as *;
 
 .item-color {
   padding: 10px 20px;

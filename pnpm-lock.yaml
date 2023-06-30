@@ -136,6 +136,9 @@ importers:
 
   visualization:
     dependencies:
+      '@beaver-ui/library':
+        specifier: workspace:^
+        version: link:../component/library
       '@beaver-ui/theme':
         specifier: workspace:^
         version: link:../component/theme

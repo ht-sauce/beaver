@@ -11,26 +11,36 @@ const router = createRouter({
         title: '首页',
       },
     },
+    // 编辑器路由部分
     {
-      path: '/design',
-      component: () => import('@/views/design/index.vue'),
+      path: '/editor',
+      component: () => import('@/layout/base.vue'),
       meta: {
-        title: '设计',
+        title: '河狸',
       },
-    },
-    {
-      path: '/edit',
-      component: () => import('@/views/edit/index.vue'),
-      meta: {
-        title: '编辑器',
-      },
-    },
-    {
-      path: '/preview',
-      component: () => import('@/views/preview/index.vue'),
-      meta: {
-        title: '预览',
-      },
+      children: [
+        {
+          path: '/design',
+          component: () => import('@/views/design/index.vue'),
+          meta: {
+            title: '设计',
+          },
+        },
+        {
+          path: '/edit',
+          component: () => import('@/views/edit/index.vue'),
+          meta: {
+            title: '编辑器',
+          },
+        },
+        {
+          path: '/preview',
+          component: () => import('@/views/preview/index.vue'),
+          meta: {
+            title: '预览',
+          },
+        },
+      ],
     },
   ],
 })
