@@ -1,5 +1,6 @@
 @use "@beaver-ui/theme/index.scss";
 @use "@beaver-ui/theme/vars/function.scss" as *;
+@use "./element/index.scss" as *;
 html,body {
   margin: 0;
   padding: 0;
