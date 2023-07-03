@@ -1,11 +1,56 @@
 // styles/element/index.scss
 @use "@beaver-ui/theme/vars/config.scss" as *;
+@use "@beaver-ui/theme/vars/function.scss" as *;
 /* 只需要重写你需要的即可 */
 @forward 'element-plus/theme-chalk/src/common/var.scss' with (
   $colors: (
+     'white': $white,
+    'black': $black,
     'primary': (
       'base': $main-color,
     ),
+    'success': (
+      'base': $success,
+    ),
+    'warning': (
+      'base': $warning,
+    ),
+    'danger': (
+      'base': $error,
+    ),
+    'error': (
+      'base': $error,
+    ),
+    'info': (
+      'base': $info,
+    ),
+  ),
+  $border-color: (
+    '': GetVar('border'),
+    'light': GetVar('border'),
+    'lighter': GetVar('border'),
+    'extra-light': GetVar('border'),
+    'dark': GetVar('border'),
+    'darker': GetVar('border'),
+  ),
+  $font-family:  (
+    // default family
+    '':$font-family
+  ),
+  $font-size:(
+    'extra-large': GetVar(h2),
+    'large': GetVar(h3),
+    'medium': GetVar(h4),
+    'base': GetVar(h5),
+    'small': GetVar(h6),
+    'extra-small': GetVar(h6),
+  ),
+  $text-color:(
+    'primary': GetVar(font-main),
+    'regular': GetVar(font-main),
+    'secondary': GetVar(font-main),
+    'placeholder': GetVar(font-secondary),
+    'disabled': GetVar(font-disable),
   ),
 );
 

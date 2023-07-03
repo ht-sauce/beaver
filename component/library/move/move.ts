@@ -83,12 +83,12 @@ export default class Move {
   eventBind() {
     const { bindDom, change, moveStart, moveStop, onlyX, onlyY, windowBoundary, parentNodeBoundary } = this.params
     const { sw, sh, maxW, maxH, minW, minH } = this.paramsHandler()
-
+    bindDom.style.cursor = 'move'
     const onmousedown = function (e) {
       // 阻止默认事件，避免元素选中
       e.preventDefault()
       bindDom.isMove = true
-      bindDom.style.cursor = 'move'
+
       //算出鼠标当前相对元素的位置
       const disX = e.x - bindDom.offsetLeft
       const disY = e.y - bindDom.offsetTop
@@ -136,7 +136,7 @@ export default class Move {
       const onmouseup = function () {
         //鼠标弹起来的时候不再移动
         bindDom.isMove = false
-        bindDom.style.cursor = 'pointer'
+        // bindDom.style.cursor = 'pointer'
         document.removeEventListener('mousemove', onmousemove, false)
         document.removeEventListener('mouseup', onmouseup, false)
         if (moveStop)

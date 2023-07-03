@@ -13,8 +13,10 @@ $white: #ffffff;
 $black: #000000; // 黑色
 
 $main-color: #faad14; // 主色调
+$font-family: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,'Noto Sans','sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol','Noto Color Emoji'";
 
 $css-var-list: (
+  font-family: $font-family,
   // 主要色彩
   main-color0: $main-color,
   main-color1: #fffbe6,
@@ -39,21 +41,21 @@ $css-var-list: (
   // 灰色
   info0: $info,
   // 字體顏色
-  font-main: rgba(0,0,0,0.85), // 主要展示文字颜色
-  font-title: rgba(0,0,0,0.85), // 标题
-  font-secondary: rgba(0,0,0,0.45),
-  font-disable: rgba(0,0,0,0.25), // 禁用
+  font-main: darken($white,85%), // 主要展示文字颜色
+  font-title: darken($white,85%), // 标题
+  font-secondary: darken($white,45%),
+  font-disable: darken($white,25%), // 禁用
   // 背景颜色
-  background:  rgba(0,0,0,0.04),
+  background:  darken($white,4%),
   // 字体大小
-  h1: 30px, // 页面唯一标题
-  h2: 24px, // 文章导航标题
-  h3: 20px, // 常规标题
+  h1: 24px, // 页面唯一标题
+  h2: 20px, // 文章导航标题
+  h3: 18px, // 常规标题
   h4: 16px, // 次级标题，弹窗标题，tab标题等
   h5: 14px, // 常规主要展示文字
   h6: 12px, // 若提示文字
   // 字重
-  bold-main: 500,
+  bold-main: 400,
   bold-title: 600,
   // 阴影
   shadow1: 0 3px 6px 0px rgba(0,0,0,0.12),
@@ -63,5 +65,5 @@ $css-var-list: (
   margin2: 8px, // 字体块间距
   margin3: 4px,
   // 边框
-  border: rgba(0,0,0,0.15)
+  border: darken($white,15%)
 )
