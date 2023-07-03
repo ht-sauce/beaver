@@ -11,7 +11,7 @@ html,body {
   color: GetVar('font-main');
   font-variant-numeric: tabular-nums; // 使其为等宽字体。
   font-family: GetVar(font-family);
-  background: GetVar(white0);
+  background: GetVar('background');
 }
 a,
 a:focus,

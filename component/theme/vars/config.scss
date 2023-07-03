@@ -64,6 +64,11 @@ $css-var-list: (
   maring1: 12px, // label块间距
   margin2: 8px, // 字体块间距
   margin3: 4px,
+  // 内间距
+  padding0: 16px,
+  padding1: 12px,
+  padding2: 8px,
   // 边框
   border: darken($white,15%)
+  //
 )

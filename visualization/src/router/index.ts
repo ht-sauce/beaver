@@ -11,6 +11,13 @@ const router = createRouter({
         title: '首页',
       },
     },
+    {
+      path: '/preview',
+      component: () => import('@/views/preview/index.vue'),
+      meta: {
+        title: '预览',
+      },
+    },
     // 编辑器路由部分
     {
       path: '/editor',
@@ -31,13 +38,6 @@ const router = createRouter({
           component: () => import('@/views/edit/index.vue'),
           meta: {
             title: '编辑器',
-          },
-        },
-        {
-          path: '/preview',
-          component: () => import('@/views/preview/index.vue'),
-          meta: {
-            title: '预览',
           },
         },
       ],

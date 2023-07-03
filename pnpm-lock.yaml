@@ -142,6 +142,9 @@ importers:
       '@beaver-ui/theme':
         specifier: workspace:^
         version: link:../component/theme
+      '@element-plus/icons-vue':
+        specifier: ^2.1.0
+        version: 2.1.0(vue@3.3.4)
       element-plus:
         specifier: ^2.3.7
         version: 2.3.7(vue@3.3.4)
