@@ -1,11 +1,13 @@
 <template>
   <div class="edit">
     <ComponentList />
-    <div>
+    <div class="page-edit">
       <PageConfig />
-      <reference-scale>
-        <iframe :src="router.resolve('/preview').href" class="edit-preview"></iframe>
-      </reference-scale>
+      <iframe
+        class="edit-preview"
+        :style="{ width: CurrentDeviceItem.px }"
+        :src="router.resolve('/preview').href"
+      ></iframe>
     </div>
 
     <ComponentAttribute />
@@ -15,9 +17,9 @@
 import ComponentAttribute from './component-attribute/index.vue'
 import ComponentList from './component-list/index.vue'
 import PageConfig from './page-config/index.vue'
-import ReferenceScale from './reference-scale/index.vue'
 
 import { useRouter } from 'vue-router'
+import { CurrentDeviceItem } from '@/views/edit/useData'
 
 const router = useRouter()
 </script>
@@ -30,9 +32,16 @@ const router = useRouter()
 }
 .edit-preview {
   border: 1px GetVar(border) solid;
+  flex: 1;
   box-sizing: border-box;
   box-shadow: GetVar(shadow1);
-  width: 500px;
-  min-height: 100%;
+  height: 100%;
+}
+.page-edit {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin-bottom: GetVar('margin0');
+  //justify-content: center;
 }
 </style>
