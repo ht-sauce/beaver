@@ -23,6 +23,7 @@ import { CurrentDeviceItem } from '@/views/edit/useData'
 
 const router = useRouter()
 </script>
+
 <style scoped lang="scss">
 @use '@beaver-ui/theme/vars/function.scss' as *;
 .edit {
