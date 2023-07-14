@@ -9,9 +9,8 @@
 </template>
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import { config } from '@beaver-ui/theme/config'
+import { config } from '@beaver-ui/theme'
 const { namespace, connector } = config
-
 function getCssVar(name: string) {
   return `var(${name})`
 }

@@ -17,8 +17,8 @@ $font-family: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica
 
 $css-var-list: (
   font-family: $font-family,
-  // 主要色彩
-  main-color0: $main-color,
+  // 主要色彩,核心色板部分代码将由js进行生成,这里仅仅是表示需要存在
+/*  main-color0: $main-color,
   main-color1: #fffbe6,
   main-color2: #fff1b8,
   main-color3: #ffe58f,
@@ -27,7 +27,7 @@ $css-var-list: (
   main-color6: #d48806,
   main-color7: #ad6800,
   main-color8: #874d00,
-  main-color9: #613400,
+  main-color9: #613400,*/
   // 黑色
   black0: $black,
   // 白色
