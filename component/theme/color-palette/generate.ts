@@ -1,8 +1,18 @@
-import { yellow } from '@ant-design/colors'
+import { generate } from '@ant-design/colors'
+import { getCssVar } from '../config'
+
 // 主题颜色生成
 const mainColor = 'main-color'
 
-const tenLen = new Array(10).fill(0).map((_, i) => i)
+function generateCssVar(cssVarName: string = 'main-color', color: string) {
+  // css样式字符串
+  const styleStr =
+    generate(color, { theme: 'default' })
+      .map((color, index: number) => {
+        return `${getCssVar(cssVarName + index)}: ${color}`
+      })
+      .join(';\n') + ';'
+  return styleStr
+}
 
-console.log(yellow.primary)
-document.documentElement.style.setProperty('--scrollbar-bg-color', '#000000')
+document.documentElement.setAttribute('style', generateCssVar(mainColor, '#faad14'))
