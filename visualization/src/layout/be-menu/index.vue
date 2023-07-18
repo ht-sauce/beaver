@@ -42,7 +42,7 @@ onUnmounted(() => {
 <style scoped lang="scss">
 @use '@beaver-ui/theme/vars/function.scss' as *;
 .menu {
-  background: GetVar('main-color0');
+  background: GetVar('main-color5');
   padding: GetVar('padding2');
   border-radius: 50%;
 }
