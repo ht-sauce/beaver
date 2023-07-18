@@ -18,6 +18,13 @@ const router = createRouter({
         title: '预览',
       },
     },
+    {
+      path: '/tree',
+      component: () => import('@/views/tree/index.vue'),
+      meta: {
+        title: '树状图',
+      },
+    },
     // 编辑器路由部分
     {
       path: '/editor',
