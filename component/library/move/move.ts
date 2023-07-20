@@ -86,7 +86,10 @@ export default class Move {
     bindDom.style.cursor = 'move'
     const onmousedown = function (e) {
       // 鼠标经过iframe会失去焦点
-      document.querySelector('iframe').style['pointer-events'] = 'none'
+      if (document.querySelector('iframe')) {
+        document.querySelector('iframe').style['pointer-events'] = 'none'
+      }
+
       // 阻止默认事件，避免元素选中
       e.preventDefault()
       bindDom.isMove = true
@@ -137,7 +140,10 @@ export default class Move {
       }
       const onmouseup = function () {
         // 释放恢复正常
-        document.querySelector('iframe').style['pointer-events'] = 'auto'
+        if (document.querySelector('iframe')) {
+          document.querySelector('iframe').style['pointer-events'] = 'auto'
+        }
+
         //鼠标弹起来的时候不再移动
         bindDom.isMove = false
         // bindDom.style.cursor = 'pointer'
