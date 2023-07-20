@@ -12,11 +12,6 @@
 <body>
   <div id="app" v-cloak>
     这时候是空数据
-<!--    <button @click="refresh">刷新</button>
-    <textarea class="edit" @input="onchange" v-model="text"></textarea>-->
-<!--    <render-component v-model="text" class="content" :key="refreshKey"></render-component>-->
-<!--    <my-component></my-component>
-    {{ text }}-->
   </div>
 </body>
 
@@ -38,25 +33,11 @@
   function renderApp() {
     if(AppExample) AppExample.unmount()
     const AppTemplate = {
-      components: {RenderComponent},
+      components: { RenderComponent },
       template: externalComponents.value,
-      setup() {
-        const refreshKey = ref(0)
-        const text = ref('')
-        function onchange() {
-          console.log(text.value)
-        }
-        function refresh() {
-          refreshKey.value = refreshKey.value + 1
-        }
-
-        return {
-          text,
-          onchange,
-          refreshKey,
-          refresh
-        }
-      },
+      // setup() {
+      //   return {}
+      // },
     }
     AppExample = createApp(AppTemplate)
 
@@ -69,9 +50,5 @@
     )
     AppExample.mount('#app')
   }
-
-
-
-
 </script>
 </html>

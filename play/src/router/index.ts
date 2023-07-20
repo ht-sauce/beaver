@@ -31,6 +31,13 @@ const router = createRouter({
         title: 'popper自研浮框',
       },
     },
+    {
+      path: '/render-vue',
+      component: () => import('@/views/RenderVue/index.vue'),
+      meta: {
+        title: 'vue代码输入运行',
+      },
+    },
   ],
 } as RouterOptions)
 
