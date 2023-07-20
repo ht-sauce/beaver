@@ -1,61 +1,30 @@
 <template>
-  <div style="display: flex">
-    <div class="p" ref="testARef">
-      <div class="testb" ref="testbRef">
-        <div class="testc" ref="testcRef"></div>
-      </div>
-      <div class="test" ref="moveRef">移动元素测试</div>
-    </div>
-  </div>
+  <button @click="postMessage">发送消息</button>
+  <iframe ref="iframeRef" class="iframe" src="/test.html"></iframe>
+  <textarea class="edit" @input="onchange" v-model="text"></textarea>
 </template>
 <script setup lang="ts">
-import { Move } from '@beaver-ui/library'
-import { onMounted, ref } from 'vue'
-import ClickOutside from '@beaver-ui/library/click-outside/clickOutside'
+import { ref } from 'vue'
 
-const testARef = ref()
-const moveRef = ref()
-const testbRef = ref()
-const testcRef = ref()
-
-onMounted(() => {
-  const move = new Move({
-    bindDom: moveRef.value,
-    parentNodeBoundary: true,
-    x: 100,
-    y: 100,
-    change(data) {
-      // console.log(data)
-    },
-  })
-  new ClickOutside({ bindDom: testARef.value })
-  // console.log(testARef.value.compareDocumentPosition(testcRef.value))
-})
+const iframeRef = ref<HTMLIFrameElement | null>(null)
+const text = ref('')
+function onchange() {
+  console.log(text.value)
+}
+function postMessage() {
+  const iframe = (iframeRef.value as HTMLIFrameElement).contentWindow
+  iframe.postMessage(text.value, '*')
+}
 </script>
 
-<style scoped>
-.p {
-  width: 500px;
-  height: 500px;
+<style scoped lang="scss">
+.iframe {
+  width: 100%;
+  height: auto;
+}
+.edit {
+  width: 100%;
+  height: 600px;
   background: #41d1ff;
-}
-.test {
-  background: red;
-  width: 100px;
-  height: 100px;
-  cursor: pointer;
-}
-.testb {
-  width: 300px;
-  height: 300px;
-  background: #52c41a;
-}
-.testc {
-  width: 200px;
-  height: 200px;
-  background: #874d00;
-  position: fixed;
-  right: 0;
-  bottom: 0;
 }
 </style>

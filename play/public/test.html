@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>测试</title>
+  <style>
+      /*[v-cloak] {*/
+      //    display: none;
+      //}
+  </style>
+</head>
+<body>
+  <div id="app" v-cloak>
+    这时候是空数据
+<!--    <button @click="refresh">刷新</button>
+    <textarea class="edit" @input="onchange" v-model="text"></textarea>-->
+<!--    <render-component v-model="text" class="content" :key="refreshKey"></render-component>-->
+<!--    <my-component></my-component>
+    {{ text }}-->
+  </div>
+</body>
+
+
+<script type="module">
+  import { createApp, ref, watch } from './lib/vue.js'
+  import MyComponent from './componets/MyComponent.js'
+  import RenderComponent from './componets/RenderComponent.js'
+
+  const externalComponents = ref('')
+  window.addEventListener('message', (e) => {
+    externalComponents.value = e.data
+  })
+  watch(() => externalComponents.value, (val) => {
+    console.log('外部传入的渲染数据',val)
+    renderApp()
+  })
+  let AppExample = null
+  function renderApp() {
+    if(AppExample) AppExample.unmount()
+    const AppTemplate = {
+      components: {RenderComponent},
+      template: externalComponents.value,
+      setup() {
+        const refreshKey = ref(0)
+        const text = ref('')
+        function onchange() {
+          console.log(text.value)
+        }
+        function refresh() {
+          refreshKey.value = refreshKey.value + 1
+        }
+
+        return {
+          text,
+          onchange,
+          refreshKey,
+          refresh
+        }
+      },
+    }
+    AppExample = createApp(AppTemplate)
+
+    // 组件不支持大写名称所以需要注意组件多个字母之间用“-”连接方式
+    AppExample.component(
+      // 注册的名字
+      'MyComponent',
+      // 组件的实现
+      MyComponent
+    )
+    AppExample.mount('#app')
+  }
+
+
+
+
+</script>
+</html>
