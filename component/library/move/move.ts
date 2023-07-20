@@ -1,4 +1,4 @@
-import { InParams, VmoveCallData } from './types'
+import type { InParams, VmoveCallData } from './types'
 
 export default class Move {
   params: InParams

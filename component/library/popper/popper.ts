@@ -1,5 +1,5 @@
 // 自研浮框
-import { Direction, PopperNewParams, PopperParams, Position, UpDown } from './types'
+import type { Direction, PopperNewParams, PopperParams, Position, UpDown } from './types'
 import { removePx, toPx } from './tool'
 
 class Popper {
