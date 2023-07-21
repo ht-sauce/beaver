@@ -52,6 +52,13 @@ const router = createRouter({
         title: '跳转外链拦截尝试',
       },
     },
+    {
+      path: '/page-scrolling-progress',
+      component: () => import('@/views/PageScrollingProgress/index.vue'),
+      meta: {
+        title: '页面滚动进度条',
+      },
+    },
   ],
 } as RouterOptions)
 
