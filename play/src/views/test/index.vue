@@ -6,6 +6,7 @@
 </template>
 <script setup lang="ts">
 import { listenChildWindow } from '../../utils/windows'
+import ExamplesVue from './ExamplesVue.vue?raw'
 
 let page: Window
 function openNewPage() {
@@ -13,6 +14,7 @@ function openNewPage() {
     console.log(data)
   })
 }
+console.log(ExamplesVue)
 </script>
 
 <style scoped lang="scss">
