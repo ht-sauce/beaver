@@ -1,40 +1,50 @@
 <template>
-  <Repl :store="store" :editor="Monaco" :showCompileOutput="true" />
+  <div class="editor">
+    <Repl :store="store" :editor="Monaco" :showCompileOutput="true" />
+  </div>
 </template>
 <script setup lang="ts">
 import { watchEffect } from 'vue'
 import { Repl, ReplStore } from '@vue/repl'
 import Monaco from '@vue/repl/monaco-editor'
+import '@vue/repl/style.css'
 
-// retrieve some configuration options from the URL
+// 从URL检索一些配置选项
 const query = new URLSearchParams(location.search)
 
 const store = new ReplStore({
-  // initialize repl with previously serialized state
+  // 用以前的序列化状态初始化repl
   serializedState: location.hash.slice(1),
 
-  // starts on the output pane (mobile only) if the URL has a showOutput query
+  // 如果URL具有showOutput查询，则在输出窗格上启动（仅限移动设备）
   showOutput: query.has('showOutput'),
-  // starts on a different tab on the output pane if the URL has a outputMode query
-  // and default to the "preview" tab
+  // 如果URL具有outputMode查询，则在输出窗格的另一个选项卡上启动
+  // 并默认为“预览”选项卡
   outputMode: query.get('outputMode') || 'preview',
 
-  // specify the default URL to import Vue runtime from in the sandbox
-  // default is the CDN link from jsdelivr.com with version matching Vue's version
+  // 在沙箱中指定从中导入Vue运行时的默认URL
+  // 默认为jsdelivr.com的CDN链接，版本与Vue的版本匹配
   // from peerDependency
-  defaultVueRuntimeURL: 'cdn link to vue.runtime.esm-browser.js',
+  defaultVueRuntimeURL: '从cdn加载vue.runtime.esm-browser.js',
 })
 
-// persist state to URL hash
+// URL哈希的持久状态
 watchEffect(() => history.replaceState({}, '', store.serialize()))
 
 // pre-set import map
 store.setImportMap({
   imports: {
-    myLib: 'cdn link to esm build of myLib',
+    myLib: '指向myLib的esm构建的cdn链接',
   },
 })
 
-// use a specific version of Vue
-store.setVueVersion('3.2.8')
+// 要使用的vue版本
+store.setVueVersion('3.3.4')
 </script>
+<style lang="scss" scoped>
+.editor {
+  width: 100%;
+  height: 100vh;
+  background: red;
+}
+</style>
