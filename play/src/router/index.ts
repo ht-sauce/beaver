@@ -38,6 +38,13 @@ const router = createRouter({
         title: 'vue代码输入运行',
       },
     },
+    {
+      path: '/render-vue-repl',
+      component: () => import('@/views/repl/index.vue'),
+      meta: {
+        title: 'vue-repl运行',
+      },
+    },
   ],
 } as RouterOptions)
 

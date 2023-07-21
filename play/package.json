@@ -12,6 +12,7 @@
   "dependencies": {
     "@beaver-ui/library": "workspace:^",
     "@beaver-ui/theme": "workspace:^",
+    "@vue/repl": "^2.5.5",
     "pinia": "^2.0.35",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6"
