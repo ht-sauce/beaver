@@ -45,6 +45,13 @@ const router = createRouter({
         title: 'vue-repl运行',
       },
     },
+    {
+      path: '/jump-outer-chain',
+      component: () => import('@/views/JumpOuterChain/index.vue'),
+      meta: {
+        title: '跳转外链拦截尝试',
+      },
+    },
   ],
 } as RouterOptions)
 
