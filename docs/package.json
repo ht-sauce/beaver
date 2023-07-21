@@ -1,7 +1,7 @@
 {
   "name": "@beaver/docs",
   "version": "1.0.0",
-  "description": "vitePress的说明网站",
+  "description": "beaver河狸工具库",
   "scripts": {
     "dev": "vitepress dev .",
     "build": "vitepress build .",
