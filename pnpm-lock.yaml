@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 importers:
 
   .:
@@ -37,6 +41,8 @@ importers:
         version: 1.8.5(typescript@5.1.6)
 
   component/beaver-ui: {}
+
+  component/connection: {}
 
   component/library:
     dependencies:
@@ -92,6 +98,9 @@ importers:
 
   play:
     dependencies:
+      '@beaver-ui/connection':
+        specifier: workspace:^
+        version: link:../component/connection
       '@beaver-ui/library':
         specifier: workspace:^
         version: link:../component/library

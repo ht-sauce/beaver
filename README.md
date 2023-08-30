@@ -21,5 +21,7 @@
 - 全局安装包 pnpm i --save-dev @types/node
 - a包引用b包： pnpm -F @edit-plat/docs i @edit-plat/icons@*
 - 某个子项目下安装包 pnpm -F @edit-plat/docs i vitepress
+
+或者  pnpm i @beaver-ui/connection -F play
 - 移除包 pnpm remove 包名
 - 更新包 pnpm up 包名，更新最新 pnpm up 包名 --latest

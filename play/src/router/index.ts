@@ -59,6 +59,13 @@ const router = createRouter({
         title: '页面滚动进度条',
       },
     },
+    {
+      path: '/node-line',
+      component: () => import('@/views/nodeLine/index.vue'),
+      meta: {
+        title: '节点连线',
+      },
+    },
   ],
 } as RouterOptions)
 

@@ -10,6 +10,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@beaver-ui/connection": "workspace:^",
     "@beaver-ui/library": "workspace:^",
     "@beaver-ui/theme": "workspace:^",
     "@vue/repl": "^2.5.5",
