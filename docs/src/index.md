@@ -3,23 +3,24 @@
 layout: home
 
 hero:
-  name: "My Awesome Project"
-  text: "A VitePress Site"
-  tagline: My great project tagline
+  name: "beaver"
+  text: "河狸筑坝"
+  tagline: 平穷限制了想象力
   actions:
     - theme: brand
-      text: Markdown Examples
+      text: 开始河狸
       link: /markdown-examples
-    - theme: alt
-      text: API Examples
-      link: /api-examples
+#    - theme: alt
+#      text: API Examples
+#      link: /api-examples
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: ht-vue-webpack-plugin
+    details: vueCli停止更新的webpack配置替代方案
+    link: https://github.com/ht-sauce/ht-vue-webpack
+#  - title: Feature B
+#    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+#  - title: Feature C
+#    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
 

@@ -14,8 +14,10 @@
   ],
   "scripts": {
     "play:dev": "pnpm run -C play dev",
+
+    "visualization:dev": "pnpm run -C visualization dev",
     "docs:dev": "pnpm run -C docs dev",
-    "visualization:dev": "pnpm run -C visualization dev"
+    "docs:build": "pnpm run -C docs build"
   },
   "repository": {
     "type": "git",
