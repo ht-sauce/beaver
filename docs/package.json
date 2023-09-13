@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@beaver-ui/library": "workspace:^",
-    "@beaver-ui/theme": "workspace:^"
+    "@beaver-ui/theme": "workspace:^",
+    "sass": "^1.64.0"
   }
 }

@@ -9,7 +9,7 @@ hero:
   actions:
     - theme: brand
       text: 开始河狸
-      link: /markdown-examples
+      link: /beaver/pages/color
 #    - theme: alt
 #      text: API Examples
 #      link: /api-examples

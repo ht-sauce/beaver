@@ -46,7 +46,7 @@ export default defineConfig({
     sidebar: [
       {
         text: 'beaver河狸组件库',
-        items: [{ text: '主题', link: '/beaver/color' }],
+        items: [{ text: '主题', link: '/beaver/pages/color' }],
         collapsed: true, // 是否可折叠
       },
     ],
