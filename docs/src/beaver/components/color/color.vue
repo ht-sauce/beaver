@@ -47,8 +47,10 @@
   </template>
 
   <div class="title">间距</div>
+  <SpacingBlock :list-item="cssList.margin" />
 
   <div class="title">内间距</div>
+  <SpacingBlock :list-item="cssList.padding" />
 
   <div class="title">边框</div>
   <template v-for="item in cssList.border" :key="item.cssVar">
@@ -57,6 +59,7 @@
 </template>
 <script setup lang="ts">
 import ColorItem from './ColorItem.vue'
+import SpacingBlock from './SpacingBlock.vue'
 import { allCssList } from './CssConfigList'
 
 const cssList = allCssList()
