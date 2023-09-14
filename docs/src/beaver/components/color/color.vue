@@ -22,20 +22,38 @@
   </template>
 
   <div class="title">字体颜色</div>
+  <template v-for="item in cssList.fontColor" :key="item.cssVar">
+    <ColorItem :item="item" :color="1" />
+  </template>
 
   <div class="title">整体背景色</div>
+  <template v-for="item in cssList.background" :key="item.cssVar">
+    <ColorItem :item="item" />
+  </template>
 
   <div class="title">字体大小</div>
+  <template v-for="item in cssList.fontSize" :key="item.cssVar">
+    <ColorItem :item="item" :color="2" :style="{ 'font-size': item.cssVar }" />
+  </template>
 
   <div class="title">字重</div>
+  <template v-for="item in cssList.fontWeight" :key="item.cssVar">
+    <ColorItem :item="item" :color="2" :style="{ 'font-weight': item.cssVar }" />
+  </template>
 
   <div class="title">阴影</div>
+  <template v-for="item in cssList.shadow" :key="item.cssVar">
+    <ColorItem :item="item" :color="2" :style="{ 'box-shadow': item.cssVar }" />
+  </template>
 
   <div class="title">间距</div>
 
   <div class="title">内间距</div>
 
   <div class="title">边框</div>
+  <template v-for="item in cssList.border" :key="item.cssVar">
+    <ColorItem :item="item" :color="2" :style="{ border: `1px ${item.cssVar} solid` }" />
+  </template>
 </template>
 <script setup lang="ts">
 import ColorItem from './ColorItem.vue'
