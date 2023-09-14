@@ -2,6 +2,7 @@
 import '@beaver-ui/theme'
 import DefaultTheme from 'vitepress/theme'
 import './rest.scss'
+import '@beaver-ui/theme/index.scss'
 
 // 相当于页面main.js
 export default {

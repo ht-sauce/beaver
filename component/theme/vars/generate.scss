@@ -1,7 +1,6 @@
 // 该文件用于生成css变量，所有应该用css变量的地方都用css变量代替
 @use './namespce.scss' as *;
 @use './config.scss' as *;
-@use './function.scss' as *;
 
 :root {
   // 生成css变量
