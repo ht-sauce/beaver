@@ -56,6 +56,16 @@
   <template v-for="item in cssList.border" :key="item.cssVar">
     <ColorItem :item="item" :color="2" :style="{ border: `1px ${item.cssVar} solid` }" />
   </template>
+
+  <div class="title">圆角</div>
+  <template v-for="item in cssList.radius" :key="item.cssVar">
+    <ColorItem
+      :item="item"
+      :color="2"
+      style="border: 1px var(--be-border) solid; margin-bottom: var(--be-margin0)"
+      :style="{ 'border-radius': item.cssVar }"
+    />
+  </template>
 </template>
 <script setup lang="ts">
 import ColorItem from './ColorItem.vue'

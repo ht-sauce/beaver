@@ -29,17 +29,17 @@ $css-var-list: (
   main-color8: #874d00,
   main-color9: #613400,*/
   // 黑色
-  black0: $black,
+  black: $black,
   // 白色
-  white0: $white,
+  white: $white,
   // 绿色
-  success0: $success,
+  success: $success,
   // 黄色
-  warning0: $warning,
+  warning: $warning,
   // 红色
-  error0: $error,
+  error: $error,
   // 灰色
-  info0: $info,
+  info: $info,
   // 字體顏色
   font-main: darken($white,85%), // 主要展示文字颜色
   font-title: darken($white,85%), // 标题
@@ -58,7 +58,7 @@ $css-var-list: (
   bold-main: 400,
   bold-title: 600,
   // 阴影
-  shadow1: 0 3px 6px 0px rgba(0,0,0,0.12),
+  shadow1: 0 0px 6px 0px rgba(0,0,0,0.12),
   // 间距
   margin0: 16px, // 块元素间距
   margin1: 12px, // label块间距
@@ -69,6 +69,7 @@ $css-var-list: (
   padding1: 12px,
   padding2: 8px,
   // 边框
-  border: darken($white,15%)
-  //
+  border: darken($white,15%),
+  // 圆角
+  radius: 4px
 )

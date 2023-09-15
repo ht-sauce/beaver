@@ -25,12 +25,12 @@ export function allCssList(): ReAllCssList {
       { cssVar: 'main-color9', tips: '' },
     ],
     baseColor: [
-      { cssVar: 'black0', tips: '' },
-      { cssVar: 'white0', tips: '背景白色等' },
-      { cssVar: 'success0', tips: '成功提示' },
-      { cssVar: 'warning0', tips: '警告提示' },
-      { cssVar: 'error0', tips: '错误提示' },
-      { cssVar: 'info0', tips: '常规信息提示' },
+      { cssVar: 'black', tips: '' },
+      { cssVar: 'white', tips: '背景白色等' },
+      { cssVar: 'success', tips: '成功提示' },
+      { cssVar: 'warning', tips: '警告提示' },
+      { cssVar: 'error', tips: '错误提示' },
+      { cssVar: 'info', tips: '常规信息提示' },
     ],
     fontColor: [
       { cssVar: 'font-main', tips: '全局的所有文字基本色' },
@@ -64,6 +64,7 @@ export function allCssList(): ReAllCssList {
       { cssVar: 'padding2', tips: '文字块间距' },
     ],
     border: [{ cssVar: 'border', tips: '所有边框都这个' }],
+    radius: [{ cssVar: 'radius', tips: '圆角' }],
   }
   const reCssList: ReAllCssList = {}
   for (const key in cssList) {

@@ -46,7 +46,10 @@ export default defineConfig({
     sidebar: [
       {
         text: 'beaver河狸组件库',
-        items: [{ text: '主题', link: '/beaver/pages/color' }],
+        items: [
+          { text: '主题', link: '/beaver/pages/color' },
+          { text: 'popper 浮框', link: '/beaver/pages/popper' },
+        ],
         collapsed: true, // 是否可折叠
       },
     ],
