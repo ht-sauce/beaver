@@ -1,0 +1,16 @@
+@use './function.scss' as *;
+@use './config.scss' as *;
+
+/*
+淡入淡出效果
+*/
+#{ns('fade-enter-active')},
+#{ns('fade-leave-active')} {
+  transition: opacity $animation-duration ease;
+  opacity: 1;
+}
+
+#{ns('fade-enter-from')},
+#{ns('fade-v-leave-to')} {
+  opacity: 0;
+}

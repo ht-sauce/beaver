@@ -15,3 +15,6 @@ export function getCssVar(cssVarName: string, isVarSplicing: boolean = false) {
   const cssVar = '--' + config.namespace + config.connector + cssVarName
   return isVarSplicing ? `var(${cssVar})` : cssVar
 }
+export function setNamespace(namespace: string) {
+  config.namespace = namespace
+}

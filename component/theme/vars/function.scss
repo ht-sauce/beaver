@@ -5,3 +5,7 @@
 @function GetVar($varName) {
   @return var(--#{$namespace + $connector + $varName})
 }
+// 拼接得到类名
+@function ns($className) {
+  @return '.' + #{$namespace + $connector + $className}
+}

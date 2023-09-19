@@ -49,6 +49,9 @@ importers:
       '@beaver-ui/theme':
         specifier: workspace:^
         version: link:../theme
+      '@beaver-ui/utils':
+        specifier: workspace:^
+        version: link:../utils
 
   component/theme:
     dependencies:
