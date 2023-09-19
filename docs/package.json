@@ -7,9 +7,9 @@
     "preview": "vitepress preview src"
   },
   "dependencies": {
-    "@beaver-ui/library": "workspace:^",
     "@beaver-ui/theme": "workspace:^",
     "@highlightjs/vue-plugin": "^2.1.0",
+    "beaver-ui": "workspace:^",
     "highlight.js": "^11.8.0",
     "sass": "^1.64.0"
   },

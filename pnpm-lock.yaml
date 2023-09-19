@@ -40,7 +40,14 @@ importers:
         specifier: ^1.8.5
         version: 1.8.5(typescript@5.1.6)
 
-  component/beaver-ui: {}
+  component/beaver-ui:
+    dependencies:
+      '@beaver-ui/library':
+        specifier: workspace:^
+        version: link:../library
+      '@beaver-ui/utils':
+        specifier: workspace:^
+        version: link:../utils
 
   component/connection: {}
 
@@ -59,19 +66,23 @@ importers:
         specifier: ^7.0.0
         version: 7.0.0
 
-  component/utils: {}
+  component/utils:
+    dependencies:
+      '@beaver-ui/theme':
+        specifier: workspace:^
+        version: link:../theme
 
   docs:
     dependencies:
-      '@beaver-ui/library':
-        specifier: workspace:^
-        version: link:../component/library
       '@beaver-ui/theme':
         specifier: workspace:^
         version: link:../component/theme
       '@highlightjs/vue-plugin':
         specifier: ^2.1.0
         version: 2.1.0(highlight.js@11.8.0)(vue@3.3.4)
+      beaver-ui:
+        specifier: workspace:^
+        version: link:../component/beaver-ui
       highlight.js:
         specifier: ^11.8.0
         version: 11.8.0

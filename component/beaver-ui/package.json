@@ -2,7 +2,13 @@
   "name": "beaver-ui",
   "version": "1.0.0",
   "description": "",
+  "module": "index.ts",
+  "types": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@beaver-ui/library": "workspace:^",
+    "@beaver-ui/utils": "workspace:^"
   }
 }

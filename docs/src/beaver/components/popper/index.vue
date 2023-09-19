@@ -11,7 +11,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { Popper } from '@beaver-ui/library'
+import { Popper } from 'beaver-ui'
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 
 const buttonRef = ref<HTMLButtonElement | null>(null)

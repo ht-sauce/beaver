@@ -2,7 +2,7 @@
   <div></div>
 </template>
 <script setup lang="ts">
-import { componentName } from '../utils/components'
+import { componentName } from '@beaver-ui/utils/components'
 
 defineOptions({
   name: componentName('button'),

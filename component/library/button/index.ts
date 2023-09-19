@@ -1,9 +1,5 @@
-import type { App } from 'vue'
-import button from './button.vue'
+import BeButton from './button.vue'
+import { withInstall } from '@beaver-ui/utils/register'
 
-export { button }
-export default {
-  install(app: App) {
-    app.use(button.name, button)
-  },
-}
+export { BeButton }
+export default withInstall([BeButton])
