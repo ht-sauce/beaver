@@ -4,8 +4,6 @@
   </i>
 </template>
 <script setup lang="ts">
-import { FirstUppercaseNamespace } from '@beaver-ui/theme/config'
-
 defineOptions({
   name: 'BeIcon',
 })

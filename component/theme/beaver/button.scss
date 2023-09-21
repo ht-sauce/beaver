@@ -1,0 +1,22 @@
+@use '../vars/function.scss' as *;
+
+#{ns('button')} {
+  padding: 8px 16px;
+  color: GetVar('font-main');
+  border: 1px GetVar('border') solid;
+  font-size: GetVar('h5');
+  line-height: 1;
+  outline: none;
+  background: GetVar('white');
+  border-radius: GetVar('radius');
+  &:hover {
+    border: 1px GetVar('main-color1') solid;
+    background: GetVar('main-color0');
+    color:  GetVar('main-color5');
+  }
+  &:active {
+    border: 1px GetVar('main-color5') solid;
+    background: GetVar('main-color0');
+    color:  GetVar('main-color5');
+  }
+}

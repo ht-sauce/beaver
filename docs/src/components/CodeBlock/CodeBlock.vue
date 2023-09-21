@@ -4,7 +4,7 @@
       <span>复制代码</span>
       <span @click="codeShow = !codeShow">查看代码</span>
     </div>
-    <AsyncComponents />
+    <AsyncComponents class="show-components" />
     <Transition name="be-fade">
       <div class="code-show" v-show="codeShow">
         <highlightjs language="vue" :code="codeString" />
@@ -33,7 +33,7 @@ function getPath(isRaw = false) {
   return isRaw ? path + '?raw' : path
 }
 // 外部传入的组件数据
-const AsyncComponents = defineAsyncComponent(() => import(getPath()))
+const AsyncComponents = defineAsyncComponent(() => import(/* @vite-ignore */ getPath()))
 
 const codeString = ref('')
 async function getCode() {
@@ -46,6 +46,9 @@ async function getCode() {
 @use '@beaver-ui/theme/vars/function.scss' as *;
 .code-block {
   border: 1px solid GetVar(border);
+}
+.show-components {
+  padding: GetVar(padding0);
 }
 .code-show {
   height: 0;

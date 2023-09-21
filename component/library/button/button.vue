@@ -1,8 +1,10 @@
 <template>
-  <div></div>
+  <button :class="className('button')">
+    <slot />
+  </button>
 </template>
 <script setup lang="ts">
-import { componentName } from '@beaver-ui/utils/components'
+import { componentName, className } from '@beaver-ui/utils/components'
 
 defineOptions({
   name: componentName('button'),

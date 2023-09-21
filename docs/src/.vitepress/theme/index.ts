@@ -1,4 +1,5 @@
 // import { Theme } from 'vitepress'
+import beaverUi from 'beaver-ui'
 import '@beaver-ui/theme'
 import '@beaver-ui/theme/index.scss'
 
@@ -15,6 +16,7 @@ import hljsVuePlugin from '@highlightjs/vue-plugin'
 export default {
   extends: DefaultTheme,
   enhanceApp({ app }) {
+    app.use(beaverUi)
     app.use(hljsVuePlugin)
     globalsComponents.forEach((component) => {
       app.component(component.name, component)

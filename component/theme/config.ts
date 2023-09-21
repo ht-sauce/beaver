@@ -6,15 +6,12 @@ export const config = {
 export function getPrefix() {
   return config.namespace + config.connector
 }
-// 命名空间首字符大写
-export function FirstUppercaseNamespace(componentName: string) {
-  return config.namespace.slice(0, 1).toUpperCase() + config.namespace.slice(1).toLowerCase() + componentName
-}
 // 获取css变量
 export function getCssVar(cssVarName: string, isVarSplicing: boolean = false) {
   const cssVar = '--' + config.namespace + config.connector + cssVarName
   return isVarSplicing ? `var(${cssVar})` : cssVar
 }
+
 export function setNamespace(namespace: string) {
   config.namespace = namespace
 }

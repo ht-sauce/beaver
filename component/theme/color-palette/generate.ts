@@ -1,4 +1,4 @@
-import { generate } from '@ant-design/colors'
+import { generate, blue } from '@ant-design/colors'
 import { getCssVar } from '../config'
 
 // 主题颜色生成
@@ -15,4 +15,4 @@ function generateCssVar(cssVarName: string = 'main-color', color: string) {
   return styleStr
 }
 
-document.documentElement.setAttribute('style', generateCssVar(mainColor, '#faad14'))
+document.documentElement.setAttribute('style', generateCssVar(mainColor, blue.primary))

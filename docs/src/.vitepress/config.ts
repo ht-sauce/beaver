@@ -49,6 +49,7 @@ export default defineConfig({
         items: [
           { text: '主题', link: '/beaver/pages/color' },
           { text: 'popper 浮框', link: '/beaver/pages/popper' },
+          { text: 'button 按钮', link: '/beaver/pages/button' },
         ],
         collapsed: true, // 是否可折叠
       },
