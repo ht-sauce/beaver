@@ -13,19 +13,19 @@
     "@beaver-ui/connection": "workspace:^",
     "@beaver-ui/library": "workspace:^",
     "@beaver-ui/theme": "workspace:^",
-    "@vue/repl": "^2.5.5",
-    "pinia": "^2.1.4",
+    "@vue/repl": "^2.5.8",
+    "pinia": "^2.1.6",
     "vue": "^3.3.4",
     "vue-router": "^4.2.4"
   },
   "devDependencies": {
-    "@rushstack/eslint-patch": "^1.3.2",
-    "@vitejs/plugin-vue": "^4.2.3",
-    "@vitejs/plugin-vue-jsx": "^3.0.1",
+    "@rushstack/eslint-patch": "^1.4.0",
+    "@vitejs/plugin-vue": "^4.3.4",
+    "@vitejs/plugin-vue-jsx": "^3.0.2",
     "@vue/eslint-config-prettier": "^8.0.0",
-    "eslint": "^8.45.0",
-    "eslint-plugin-vue": "^9.15.1",
-    "prettier": "^3.0.0",
-    "vite": "^4.4.5"
+    "eslint": "^8.49.0",
+    "eslint-plugin-vue": "^9.17.0",
+    "prettier": "^3.0.3",
+    "vite": "^4.4.9"
   }
 }
