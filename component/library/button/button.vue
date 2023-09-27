@@ -1,5 +1,5 @@
 <template>
-  <button :class="[className('button'), classType]">
+  <button :class="classList">
     <slot />
   </button>
 </template>
@@ -7,40 +7,27 @@
 import { componentName, className } from '@beaver-ui/utils/components'
 import { Types } from '../types'
 import { computed } from 'vue'
+import { useConfig } from '../provide-config/data'
 const baseName = 'button'
 defineOptions({
   name: componentName(baseName),
 })
 type Props = {
   type?: Types
+  circular?: boolean
 }
 const props = withDefaults(defineProps<Props>(), {})
+const config = useConfig()
+const finalType = computed(() => config.type || props.type)
 
-const classType = computed(() => {
-  let typeName = ''
-  switch (props.type) {
-    case 'primary': {
-      typeName = 'primary'
-      break
-    }
-    case 'danger': {
-      typeName = 'danger'
-      break
-    }
-    case 'warning': {
-      typeName = 'warning'
-      break
-    }
-    case 'success': {
-      typeName = 'success'
-      break
-    }
+const classList = computed(() => {
+  const classArr = [className('button')]
+  if (finalType.value) {
+    classArr.push(className([baseName, finalType.value]))
   }
-  if (typeName) {
-    return className([baseName, typeName])
+  if (props.circular) {
+    classArr.push(className([baseName, 'circular']))
   }
-  return ''
+  return classArr
 })
 </script>
-
-<style scoped></style>

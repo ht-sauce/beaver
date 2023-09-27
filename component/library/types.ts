@@ -1,1 +1,1 @@
-export type Types = '' | 'primary' | 'success' | 'danger' | 'warning'
+export type Types = 'primary' | 'success' | 'danger' | 'warning'

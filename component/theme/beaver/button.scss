@@ -9,6 +9,9 @@
   outline: none;
   background: GetVar('white');
   border-radius: GetVar('radius');
+  & + & {
+    margin-left: GetVar('margin3');
+  }
   &:hover {
     border: 1px GetVar('main-color1') solid;
     background: GetVar('main-color0');
@@ -19,4 +22,7 @@
     background: GetVar('main-color0');
     color:  GetVar('main-color5');
   }
+}
+#{ns('button-circular')} {
+  border-radius: 50%;
 }

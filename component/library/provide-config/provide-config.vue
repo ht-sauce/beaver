@@ -3,15 +3,18 @@
 </template>
 <script setup lang="ts">
 import { componentName } from '@beaver-ui/utils/components'
-import { Types } from '../types'
+
+import { provide } from 'vue'
+
+import type { Props } from './data'
+import { configProvideProps } from './data'
 
 const baseName = 'provideConfig'
 defineOptions({
   name: componentName(baseName),
 })
 
-type Props = {
-  type?: Types
-}
 const props = withDefaults(defineProps<Props>(), {})
+
+provide(configProvideProps, () => props)
 </script>
