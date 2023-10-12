@@ -45,7 +45,6 @@ import { SvgList } from 'beaver-ui'
     width: 100%;
     text-align: center;
     font-size: GetVar('h5');
-    color: GetVar('font-main');
   }
 }
 </style>
