@@ -4,3 +4,4 @@ export * from './copy'
 export * from './popper'
 
 export * from './button'
+export * from './icon'
