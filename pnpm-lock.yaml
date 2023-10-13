@@ -15,6 +15,9 @@ importers:
       '@beaver-internal/eslint-config':
         specifier: workspace:*
         version: link:internal/eslint-config
+      '@types/node':
+        specifier: '*'
+        version: 20.6.3
       eslint:
         specifier: ^8.49.0
         version: 8.49.0
@@ -98,7 +101,7 @@ importers:
     devDependencies:
       vitepress:
         specifier: 1.0.0-rc.10
-        version: 1.0.0-rc.10(@algolia/client-search@4.20.0)(sass@1.68.0)(search-insights@2.8.2)
+        version: 1.0.0-rc.10(@algolia/client-search@4.20.0)(@types/node@20.6.3)(sass@1.68.0)(search-insights@2.8.2)
 
   icons: {}
 
@@ -4396,7 +4399,7 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vitepress@1.0.0-rc.10(@algolia/client-search@4.20.0)(sass@1.68.0)(search-insights@2.8.2):
+  /vitepress@1.0.0-rc.10(@algolia/client-search@4.20.0)(@types/node@20.6.3)(sass@1.68.0)(search-insights@2.8.2):
     resolution: {integrity: sha512-+MsahIWqq5WUEmj6MR4obcKYbT7im07jZPCQPdNJExkeOSbOAJ4xypSLx88x7rvtzWHhHc5aXbOhCRvGEGjFrw==}
     hasBin: true
     dependencies:

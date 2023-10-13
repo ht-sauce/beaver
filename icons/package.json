@@ -5,6 +5,6 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "generateSvgVue": "node ./generateSvgVue.js"
+    "generateSvgVue": "node ./build/generateSvgVue.js"
   }
 }
