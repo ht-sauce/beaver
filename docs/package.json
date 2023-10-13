@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@beaver-ui/theme": "workspace:^",
+    "@beaver/icons": "workspace:^",
     "@highlightjs/vue-plugin": "^2.1.0",
     "beaver-ui": "workspace:^",
     "highlight.js": "^11.8.0",

@@ -16,7 +16,8 @@
     "play:dev": "pnpm run -C play dev",
     "visualization:dev": "pnpm run -C visualization dev",
     "docs:dev": "pnpm run -C docs dev",
-    "docs:build": "pnpm run -C docs build"
+    "docs:build": "pnpm run -C docs build",
+    "icons:generateSvgVue": "pnpm run -C icons generateSvgVue"
   },
   "repository": {
     "type": "git",

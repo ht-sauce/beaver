@@ -9,7 +9,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { SvgList } from 'beaver-ui'
+import SvgList from '@beaver/icons'
 </script>
 
 <style lang="scss" scoped>
@@ -29,18 +29,15 @@ $border: 1px solid GetVar('border');
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  font-size: 30px;
   border-right: $border;
   border-bottom: $border;
   cursor: pointer;
   word-wrap: break-word;
   &:hover {
-    background: GetVar('main-color5');
-    color: GetVar('white');
-    .icon-name,
-    .svg-icon {
-      color: GetVar('white');
-    }
+    background: GetVar('main-color0');
+  }
+  .svg-icon {
+    font-size: 30px;
   }
   .icon-name {
     width: 100%;

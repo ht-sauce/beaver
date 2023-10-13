@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@beaver-ui/theme": "workspace:^",
-    "@beaver-ui/utils": "workspace:^"
+    "@beaver-ui/utils": "workspace:^",
+    "@beaver/icons": "workspace:^"
   }
 }
