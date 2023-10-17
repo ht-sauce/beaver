@@ -1,15 +1,20 @@
 <template>
   <div class="all-svg">
-    <template v-for="item in SvgList" :key="item">
-      <div class="svg-block">
-        <be-icon :icon="item" class="svg-icon" />
-        <div class="icon-name">{{ item }}</div>
+    <template v-for="(item, key) in icons" :key="item">
+      <div class="svg-block" v-if="key != 'SvgList'">
+        <be-icon class="svg-icon">
+          <SvgVue :template="item" />
+        </be-icon>
+        <div class="icon-name">
+          {{ key }}
+        </div>
       </div>
     </template>
   </div>
 </template>
 <script setup lang="ts">
-import SvgList from '@beaver/icons'
+import SvgVue from './SvgVue.vue'
+import * as icons from '@beaver-ui/icons'
 </script>
 
 <style lang="scss" scoped>

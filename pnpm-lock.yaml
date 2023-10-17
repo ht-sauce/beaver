@@ -62,9 +62,6 @@ importers:
       '@beaver-ui/utils':
         specifier: workspace:^
         version: link:../utils
-      '@beaver/icons':
-        specifier: workspace:^
-        version: link:../../icons
 
   component/theme:
     dependencies:
@@ -80,12 +77,12 @@ importers:
 
   docs:
     dependencies:
+      '@beaver-ui/icons':
+        specifier: workspace:^
+        version: link:../icons
       '@beaver-ui/theme':
         specifier: workspace:^
         version: link:../component/theme
-      '@beaver/icons':
-        specifier: workspace:^
-        version: link:../icons
       '@highlightjs/vue-plugin':
         specifier: ^2.1.0
         version: 2.1.0(highlight.js@11.8.0)(vue@3.3.4)

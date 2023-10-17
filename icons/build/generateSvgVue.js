@@ -22,14 +22,19 @@ async function getAllSvgPath() {
     await writeFile(getPath('svg-vue/' + vueFileName(name) + '.vue'), text)
   }
   // 生成index.js导出文件
-  const exportIndexJS = list
-    .map((li) => {
-      return `'${vueFileName(li)}'`
-    })
-    .toString()
-  const indexJSContent = `export default [
-    ${exportIndexJS}
-  ]`
+  const vueNameList = list.map((li) => vueFileName(li))
+  const exportIndexJS = vueNameList.map((li) => `'${li}'`).toString()
+
+  const exportVue = vueNameList.map((name) => {
+    return `import ${name} from './svg-vue/${name}.vue'`
+  }).join(`
+`)
+  const exportVar = vueNameList.toString()
+  const indexJSContent = `export const SvgList =[${exportIndexJS}]
+  ${exportVue}
+  export { ${exportVar} }
+  `
+  // export const Addteam = import('./Addteam.vue')
   await writeFile(getPath('index.js'), indexJSContent)
 }
 

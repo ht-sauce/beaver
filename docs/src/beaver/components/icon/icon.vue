@@ -1,6 +1,10 @@
 <template>
   <div>
-    <div>引入svg源码方式，使用svg内置vue文件导入页面</div>
+    <div>基础使用方式，引入svg源码方式，组件库提供的@beaver-ui/icons</div>
+    <be-icon class="svg-icon">
+      <AddTeam />
+    </be-icon>
+    <div>svg源码提取改为vue文件方式</div>
     <be-icon class="svg-icon">
       <IconBarcode />
     </be-icon>
@@ -9,6 +13,7 @@
   </div>
 </template>
 <script setup lang="ts">
+import { AddTeam } from '@beaver-ui/icons'
 import IconBarcode from './IconBarcode.vue'
 import bangongyongpinguanli from './bangongyongpinguanli.svg?raw'
 </script>
