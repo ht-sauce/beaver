@@ -4,7 +4,9 @@
       <span>复制代码</span>
       <span @click="codeShow = !codeShow">查看代码</span>
     </div>
-    <AsyncComponents class="show-components" />
+    <div class="show-components">
+      <AsyncComponents />
+    </div>
     <Transition name="be-fade">
       <div class="code-show" v-show="codeShow">
         <highlightjs language="vue" :code="codeString" />

@@ -51,6 +51,7 @@ export default defineConfig({
           { text: 'popper 浮框', link: '/beaver/pages/popper' },
           { text: 'button 按钮', link: '/beaver/pages/button' },
           { text: 'icon 按钮', link: '/beaver/pages/icon' },
+          { text: 'card 卡片', link: '/beaver/pages/card' },
         ],
         collapsed: true, // 是否可折叠
       },

@@ -1,0 +1,15 @@
+@use '../vars/function.scss' as *;
+
+#{ns('card')} {
+  border-radius:  GetVar('radius');
+  box-shadow: GetVar('shadow1');
+}
+#{ns('card-header')} {
+  border-bottom: 1px GetVar('border') solid;
+}
+#{ns('card-header-title')} {
+  font-size: GetVar('h4');
+}
+#{ns('card-body')} {
+  padding: GetVar('padding0');
+}
