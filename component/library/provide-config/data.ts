@@ -8,15 +8,18 @@ export type Props = {
   namespace?: string // 全局组件类名称前缀
   size?: Sizes // 全局组件大小
 }
+
+export const defaultData: Props = {
+  type: null,
+  namespace: 'be',
+  size: 'default',
+}
+
 export const configProvideProps = Symbol('configProvideProps')
 //  注入配置，其他组件可以获取到配置
 export function useConfig(): Props {
   const configInject: () => Props = inject(configProvideProps, (): Props => {
-    return {
-      type: null,
-      namespace: 'be',
-      size: 'default',
-    }
+    return defaultData
   })
   return configInject()
 }

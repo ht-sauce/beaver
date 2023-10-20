@@ -47,6 +47,7 @@ export default defineConfig({
       {
         text: 'beaver河狸组件库',
         items: [
+          { text: '开始', link: '/beaver/pages/start' },
           { text: '主题', link: '/beaver/pages/color' },
           { text: 'popper 浮框', link: '/beaver/pages/popper' },
           { text: 'button 按钮', link: '/beaver/pages/button' },

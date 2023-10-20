@@ -1,4 +1,5 @@
 // import { Theme } from 'vitepress'
+import MyLayout from './MyLayout.vue'
 import beaverUi from 'beaver-ui'
 import '@beaver-ui/theme'
 import '@beaver-ui/theme/index.scss'
@@ -14,7 +15,8 @@ import hljsVuePlugin from '@highlightjs/vue-plugin'
 
 // 相当于页面main.js
 export default {
-  extends: DefaultTheme,
+  ...DefaultTheme,
+  Layout: MyLayout,
   enhanceApp({ app }) {
     app.use(beaverUi)
     app.use(hljsVuePlugin)
