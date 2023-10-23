@@ -1,12 +1,22 @@
 <template>
   <button :class="classList">
-    <slot />
+    <span
+      v-if="icon"
+      :class="[className([baseName, 'icon']), $slots.default ? className([baseName, 'is', 'margin']) : '']"
+    >
+      <be-icon>
+        <component :is="icon"></component>
+      </be-icon>
+    </span>
+
+    <slot></slot>
   </button>
 </template>
 <script setup lang="ts">
 import { componentName, className } from '@beaver-ui/utils/components'
+import { BeIcon } from '../icon'
 import { Types } from '../types'
-import { computed } from 'vue'
+import { computed, DefineComponent } from 'vue'
 import { useConfig } from '../provide-config/data'
 const baseName = 'button'
 defineOptions({
@@ -15,6 +25,8 @@ defineOptions({
 type Props = {
   type?: Types
   circular?: boolean
+  icon?: DefineComponent
+  link?: boolean
 }
 const props = withDefaults(defineProps<Props>(), {})
 const config = useConfig()
@@ -27,6 +39,9 @@ const classList = computed(() => {
   }
   if (props.circular) {
     classArr.push(className([baseName, 'circular']))
+  }
+  if (props.link) {
+    classArr.push(className([baseName, 'link']))
   }
   return classArr
 })

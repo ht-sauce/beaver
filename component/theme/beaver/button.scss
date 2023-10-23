@@ -1,14 +1,17 @@
 @use '../vars/function.scss' as *;
 
 #{ns('button')} {
-  padding: 8px 16px;
+  height: 32px;
+  padding: 4px 15px;
   color: GetVar('font-main');
   border: 1px GetVar('border') solid;
   font-size: GetVar('h5');
-  line-height: 1;
   outline: none;
   background: GetVar('white');
   border-radius: GetVar('radius');
+  display: inline-flex;
+  align-items: center;
+  vertical-align:middle; // 保证在一个水平线
   & + & {
     margin-left: GetVar('margin3');
   }
@@ -23,6 +26,50 @@
     color:  GetVar('main-color5');
   }
 }
+#{ns('button-icon')} {
+  font-size: 16px;
+}
+
 #{ns('button-circular')} {
   border-radius: 50%;
+  padding: 7px;
+}
+
+#{ns('button-primary')} {
+  background: GetVar('main-color5');
+  color: GetVar('white');
+}
+#{ns('button-warning')} {
+  background: GetVar('warning');
+  color: GetVar('white');
+}
+#{ns('button-danger')} {
+  background: GetVar('error');
+  color: GetVar('white');
+}
+#{ns('button-success')} {
+  background: GetVar('success');
+  color: GetVar('white');
+}
+
+
+#{ns('button-is-margin')} {
+  margin-right: GetVar('margin3');
+}
+
+#{ns('button-link')} {
+  padding: 0;
+  border: none;
+  background: none;
+  color: GetVar('font-main');
+  &:hover {
+    border: none;
+    background: none;
+    color: inherit;
+  }
+  &:active {
+    border: none;
+    background: none;
+    color: inherit;
+  }
 }

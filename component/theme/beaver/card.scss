@@ -3,13 +3,23 @@
 #{ns('card')} {
   border-radius:  GetVar('radius');
   box-shadow: GetVar('shadow1');
+  background: GetVar('white');
+  border: 1px GetVar('border') solid;
 }
+
 #{ns('card-header')} {
   border-bottom: 1px GetVar('border') solid;
+  padding: GetVar('padding2') GetVar('padding0') GetVar('padding2') GetVar('padding0');
 }
 #{ns('card-header-title')} {
   font-size: GetVar('h4');
+  font-weight: GetVar('bold-title');
 }
+
 #{ns('card-body')} {
   padding: GetVar('padding0');
+}
+// 有标题的卡片
+#{ns('card-is-header')} {
+  padding: GetVar('padding2') GetVar('padding0') GetVar('padding2') GetVar('padding0');
 }

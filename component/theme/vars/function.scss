@@ -2,8 +2,12 @@
 //@use 'sass:math';
 @use './namespce.scss' as *;
 
-@function GetVar($varName) {
-  @return var(--#{$namespace + $connector + $varName})
+@function GetVar($varName, $isVar: true) {
+  @if $isVar {
+    @return var(--#{$namespace + $connector + $varName})
+  } @else {
+    @return --#{$namespace + $connector + $varName}
+  }
 }
 // 拼接得到类名
 @function ns($className) {
