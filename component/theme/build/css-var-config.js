@@ -40,10 +40,10 @@ export const colorPalette = {
   // 灰色
   info: info,
   // 字體顏色
-  'font-main': tinycolor(white).darken(88).toString, // 'darken($white,88%)', // 主要展示文字颜色
-  'font-title': tinycolor(white).darken(88).toString, // 标题
-  'font-secondary': tinycolor(white).darken(45).toString,
-  'font-disable': tinycolor(white).darken(25).toString, // 禁用
+  'font-main': tinycolor(white).darken(88), // 主要展示文字颜色
+  'font-title': tinycolor(white).darken(88), // 标题
+  'font-secondary': tinycolor(white).darken(45),
+  'font-disable': tinycolor(white).darken(25), // 禁用
   // 背景颜色
   background: 'darken($white,4%)',
   // 字体大小
@@ -68,7 +68,7 @@ export const colorPalette = {
   padding1: '12px',
   padding2: '8px',
   // 边框
-  border: tinycolor(white).darken(15).toString,
+  border: tinycolor(white).darken(15),
   // 圆角
   radius: '4px',
 }

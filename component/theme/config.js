@@ -7,11 +7,11 @@ export function getPrefix() {
   return config.namespace + config.connector
 }
 // 获取css变量
-export function getCssVar(cssVarName: string, isVarSplicing: boolean = false) {
+export function getCssVar(cssVarName, isVarSplicing = false) {
   const cssVar = '--' + config.namespace + config.connector + cssVarName
   return isVarSplicing ? `var(${cssVar})` : cssVar
 }
 
-export function setNamespace(namespace: string) {
+export function setNamespace(namespace) {
   config.namespace = namespace
 }

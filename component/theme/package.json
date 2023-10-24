@@ -4,12 +4,11 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "generate": "./build/generateScss.js",
-    "tsc": "tsc ./index.ts"
+    "generate": "node ./build/generateScss.js"
   },
-  "main": "index.ts",
-  "module": "es/index.mjs",
-  "types": "index.ts",
+  "main": "index.js",
+  "module": "index.js",
+  "types": "index.js",
   "devDependencies": {
     "@ant-design/colors": "^7.0.0",
     "tinycolor2": "^1.6.0"
