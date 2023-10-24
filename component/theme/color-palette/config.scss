@@ -20,24 +20,24 @@ $animation-duration: 0.3s;
 $css-var-list: (
   font-family: $font-family,
   // 主要色彩,核心色板部分代码将由js进行生成,这里仅仅是表示需要存在
-/*  main-color0: '#fffbe6',
-  main-color1: #fffbe6,
-  main-color2: #fff1b8,
-  main-color3: #ffe58f,
-  main-color4: #ffd666,
-  main-color5: $main-color,
-  main-color6: #d48806,
-  main-color7: #ad6800,
-  main-color8: #874d00,
-  main-color9: #613400,*/
+  //main-color0: genColor($main-color, 1),
+  //main-color1: genColor($main-color, 2),
+  //main-color2: genColor($main-color, 3),
+  //main-color3: genColor($main-color, 4),
+  //main-color4: genColor($main-color, 5),
+  //main-color5: $main-color,
+  //main-color6: genColor($main-color, 7),
+  //main-color7: genColor($main-color, 8),
+  //main-color8: genColor($main-color, 9),
+  //main-color9: genColor($main-color, 10),
   // 黑色
   black: $black,
   // 白色
   white: $white,
   // 绿色
-  success: $success,
+  success: $success, // 相当于5档颜色
   // 黄色
-  warning: $warning,
+  warning: $warning, // 相当于5档颜色
   // 红色
   error: $error,
   // 灰色

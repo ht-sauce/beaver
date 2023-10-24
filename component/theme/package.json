@@ -2,11 +2,16 @@
   "name": "@beaver-ui/theme",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "generate": "./build/generateScss.js",
+    "tsc": "tsc ./index.ts"
   },
   "main": "index.ts",
-  "dependencies": {
-    "@ant-design/colors": "^7.0.0"
+  "module": "es/index.mjs",
+  "types": "index.ts",
+  "devDependencies": {
+    "@ant-design/colors": "^7.0.0",
+    "tinycolor2": "^1.6.0"
   }
 }

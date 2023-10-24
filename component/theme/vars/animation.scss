@@ -1,6 +1,6 @@
 @use './function.scss' as *;
-@use './config.scss' as *;
-
+// 动画时间
+$animation-duration: 0.3s;
 /*
 淡入淡出效果
 */
