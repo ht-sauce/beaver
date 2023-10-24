@@ -2,7 +2,7 @@
 
 #{ns('button')} {
   height: 32px;
-  padding: 4px 15px;
+  padding: 0 15px;
   color: GetVar('font-main');
   border: 1px GetVar('border') solid;
   font-size: GetVar('h5');
@@ -13,10 +13,10 @@
   align-items: center;
   vertical-align:middle; // 保证在一个水平线
   & + & {
-    margin-left: GetVar('margin3');
+    margin-left: GetVar('margin2');
   }
   &:hover {
-    border: 1px GetVar('main-color1') solid;
+    border: 1px GetVar('main-color3') solid;
     background: GetVar('main-color0');
     color:  GetVar('main-color5');
   }
@@ -34,42 +34,56 @@
   border-radius: 50%;
   padding: 7px;
 }
-
-#{ns('button-primary')} {
-  background: GetVar('main-color5');
-  color: GetVar('white');
+#{ns('button-round')} {
+  border-radius: 16px;
 }
-#{ns('button-warning')} {
-  background: GetVar('warning');
-  color: GetVar('white');
+// 主题颜色
+@mixin buttonType($name, $colorName) {
+  #{ns($name)} {
+    background: GetVar($colorName + '5');
+    color: GetVar('white');
+    &:hover {
+      border: 1px GetVar($colorName + '3') solid;
+      background: GetVar($colorName + '3');
+      color: GetVar('white');
+    }
+    &:active {
+      border: 1px GetVar($colorName + '6') solid;
+      background: GetVar($colorName + '6');
+    }
+  }
 }
-#{ns('button-danger')} {
-  background: GetVar('error');
-  color: GetVar('white');
-}
-#{ns('button-success')} {
-  background: GetVar('success');
-  color: GetVar('white');
-}
-
+@include buttonType('button-primary', 'main-color');
+@include buttonType('button-warning', 'warning');
+@include buttonType('button-danger', 'error');
+@include buttonType('button-success', 'success');
+@include buttonType('button-info', 'info');
 
 #{ns('button-is-margin')} {
   margin-right: GetVar('margin3');
 }
-
-#{ns('button-link')} {
-  padding: 0;
-  border: none;
-  background: none;
-  color: GetVar('font-main');
-  &:hover {
+@mixin buttonLinkType($name, $colorName) {
+  #{ns($name)} {
+    padding: 0;
     border: none;
     background: none;
-    color: inherit;
-  }
-  &:active {
-    border: none;
-    background: none;
-    color: inherit;
+    color: GetVar($colorName + '5');
+    height: auto;
+    line-height: 1;
+    &:hover {
+      border: none;
+      background: none;
+      color: GetVar($colorName + '3');
+    }
+    &:active {
+      border: none;
+      background: none;
+      color: GetVar($colorName + '6');
+    }
   }
 }
+@include buttonLinkType('button-link-primary', 'main-color');
+@include buttonLinkType('button-link-warning', 'warning');
+@include buttonLinkType('button-link-danger', 'error');
+@include buttonLinkType('button-link-success', 'success');
+@include buttonLinkType('button-link-info', 'info');

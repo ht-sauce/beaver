@@ -1,14 +1,14 @@
 import tinycolor from 'tinycolor2'
-import { blue } from '@ant-design/colors'
+import { blue, generate } from '@ant-design/colors'
 
 // 绿色
-const success = '#52c41a'
+const success = generate('#52c41a')
 // 黄色
-const warning = '#faad14'
+const warning = generate('#faad14')
 // 红色
-const error = '#f5222d'
+const error = generate('#f5222d')
 // 灰色
-const info = '#bfbfbf'
+const info = generate('#8c8c8c')
 // 黑色
 // const black = '#000000'
 // 白色
@@ -32,13 +32,26 @@ export const colorPalette = {
   // 白色
   white: white,
   // 绿色
-  success: success, // 相当于5档颜色
+  success3: success[3],
+  success4: success[4],
+  success5: success[5], // 相当于5档颜色
+  success6: success[6],
   // 黄色
-  warning: warning, // 相当于5档颜色
+  warning3: warning[3],
+  warning4: warning[4],
+  warning5: warning[5],
+  warning6: warning[6],
   // 红色
-  error: error,
+  error3: error[3],
+  error4: error[4],
+  error5: error[5],
+  error6: error[6],
   // 灰色
-  info: info,
+  info3: info[3],
+  info4: info[4],
+  info5: info[5],
+  info6: info[6],
+
   // 字體顏色
   'font-main': tinycolor(white).darken(88), // 主要展示文字颜色
   'font-title': tinycolor(white).darken(88), // 标题
